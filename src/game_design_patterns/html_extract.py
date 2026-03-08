@@ -1,5 +1,5 @@
 import re
-from urllib.parse import parse_qs, urljoin, urlparse
+from urllib.parse import parse_qs, urldefrag, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
@@ -8,36 +8,15 @@ from game_design_patterns.models import (
     ExtractedArticle,
     ExtractedEntryPage,
 )
+from game_design_patterns.paths import is_github_awesome_repo_url
 
 
 def extract_entry_page(html: str, source_url: str) -> ExtractedEntryPage:
     soup = BeautifulSoup(html, "html.parser")
     source_name = _extract_site_name(soup, source_url)
     title = _build_entry_page_title(source_name, source_url)
-    candidates: list[EntryCandidate] = []
-    seen_urls: set[str] = set()
-
-    for anchor in soup.find_all("a", href=True):
-        raw_href = anchor["href"]
-        absolute_url = urljoin(source_url, raw_href)
-
-        if not _is_article_url(absolute_url):
-            continue
-
-        if absolute_url in seen_urls:
-            continue
-
-        candidate_title = _extract_anchor_title(anchor)
-        if not candidate_title:
-            continue
-
-        candidates.append(EntryCandidate(title=candidate_title, url=absolute_url))
-        seen_urls.add(absolute_url)
-
-    summary = [
-        f"来源站点：{source_name}",
-        f"候选文章数：{len(candidates)}",
-    ]
+    candidates = _extract_entry_candidates(soup, source_url)
+    summary = _build_entry_page_summary(source_name, source_url, candidates)
 
     return ExtractedEntryPage(
         title=title,
@@ -84,11 +63,106 @@ def _extract_site_name(soup: BeautifulSoup, source_url: str) -> str:
 
 
 def _build_entry_page_title(source_name: str, source_url: str) -> str:
+    if is_github_awesome_repo_url(source_url):
+        owner, repo = _github_repo_parts(source_url)
+        if owner and repo:
+            return f"{source_name} - {owner}/{repo}"
+
     query = parse_qs(urlparse(source_url).query)
     categories = query.get("category")
     if categories:
         return f"{source_name} - {categories[0]}"
     return source_name
+
+
+def _extract_entry_candidates(
+    soup: BeautifulSoup,
+    source_url: str,
+) -> list[EntryCandidate]:
+    if is_github_awesome_repo_url(source_url):
+        return _extract_github_awesome_candidates(soup, source_url)
+    return _extract_article_candidates(soup, source_url)
+
+
+def _extract_article_candidates(
+    soup: BeautifulSoup,
+    source_url: str,
+) -> list[EntryCandidate]:
+    candidates: list[EntryCandidate] = []
+    seen_urls: set[str] = set()
+
+    for anchor in soup.find_all("a", href=True):
+        raw_href = anchor["href"]
+        absolute_url = urljoin(source_url, raw_href)
+
+        if not _is_article_url(absolute_url):
+            continue
+        if absolute_url in seen_urls:
+            continue
+
+        candidate_title = _extract_anchor_title(anchor)
+        if not candidate_title:
+            continue
+
+        candidates.append(EntryCandidate(title=candidate_title, url=absolute_url))
+        seen_urls.add(absolute_url)
+
+    return candidates
+
+
+def _extract_github_awesome_candidates(
+    soup: BeautifulSoup,
+    source_url: str,
+) -> list[EntryCandidate]:
+    readme_root = soup.select_one(".markdown-body")
+    if readme_root is None:
+        return []
+
+    candidates: list[EntryCandidate] = []
+    seen_urls: set[str] = set()
+
+    for anchor in readme_root.find_all("a", href=True):
+        raw_href = anchor["href"].strip()
+        if not raw_href or raw_href.startswith("#"):
+            continue
+
+        absolute_url, _fragment = urldefrag(urljoin(source_url, raw_href))
+        if not _is_http_url(absolute_url):
+            continue
+        if _is_same_github_repo_url(absolute_url, source_url):
+            continue
+
+        candidate_title = _extract_anchor_title(anchor)
+        if not candidate_title:
+            continue
+        if _looks_like_license_link(candidate_title, absolute_url):
+            continue
+        if absolute_url in seen_urls:
+            continue
+
+        candidates.append(EntryCandidate(title=candidate_title, url=absolute_url))
+        seen_urls.add(absolute_url)
+
+    return candidates
+
+
+def _build_entry_page_summary(
+    source_name: str,
+    source_url: str,
+    candidates: list[EntryCandidate],
+) -> list[str]:
+    if is_github_awesome_repo_url(source_url):
+        owner, repo = _github_repo_parts(source_url)
+        summary = [f"来源站点：{source_name}"]
+        if owner and repo:
+            summary.append(f"仓库：{owner}/{repo}")
+        summary.append(f"候选链接数：{len(candidates)}")
+        return summary
+
+    return [
+        f"来源站点：{source_name}",
+        f"候选文章数：{len(candidates)}",
+    ]
 
 
 def _is_article_url(url: str) -> bool:
@@ -205,4 +279,52 @@ def _looks_like_author_bio(text: str) -> bool:
         return True
     if lowered.startswith("when ") and "isn’t busy" in lowered:
         return True
+    return False
+
+
+def _github_repo_parts(source_url: str) -> tuple[str, str]:
+    parsed = urlparse(source_url)
+    parts = [part for part in parsed.path.split("/") if part]
+    if len(parts) < 2:
+        return "", ""
+    return parts[0], parts[1]
+
+
+def _is_http_url(url: str) -> bool:
+    return urlparse(url).scheme in {"http", "https"}
+
+
+def _is_same_github_repo_url(url: str, source_url: str) -> bool:
+    parsed = urlparse(url)
+    if (parsed.hostname or "").removeprefix("www.") != "github.com":
+        return False
+
+    owner, repo = _github_repo_parts(source_url)
+    if not owner or not repo:
+        return False
+
+    repo_prefix = f"/{owner}/{repo}"
+    return parsed.path.rstrip("/").startswith(repo_prefix)
+
+
+def _looks_like_license_link(title: str, url: str) -> bool:
+    lowered_title = title.lower()
+    if re.search(
+        r"\b(mit|gpl|lgpl|apache|bsd|mpl|cc0|isc|expat|zlib|wtfpl|unlicense)\b",
+        lowered_title,
+    ):
+        return True
+    if "public domain" in lowered_title or "proprietary" in lowered_title:
+        return True
+
+    hostname = (urlparse(url).hostname or "").removeprefix("www.")
+    if hostname in {
+        "opensource.org",
+        "gnu.org",
+        "creativecommons.org",
+        "directory.fsf.org",
+        "freedomdefined.org",
+    } and len(title) <= 24:
+        return True
+
     return False

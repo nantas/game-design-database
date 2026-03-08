@@ -11,8 +11,23 @@ def classify_page_type(url: str) -> PageType:
 
     if "category" in query:
         return PageType.ENTRY_PAGE
+    if is_github_awesome_repo_url(url):
+        return PageType.ENTRY_PAGE
 
     return PageType.ARTICLE
+
+
+def is_github_awesome_repo_url(url: str) -> bool:
+    parsed = urlparse(url)
+    if (parsed.hostname or "").removeprefix("www.") != "github.com":
+        return False
+
+    parts = [part for part in parsed.path.split("/") if part]
+    if len(parts) != 2:
+        return False
+
+    _owner, repo = parts
+    return "awesome" in repo.lower()
 
 
 def _note_path(directory: str, title: str) -> Path:

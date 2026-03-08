@@ -25,6 +25,27 @@ def test_import_entry_page_writes_markdown_file(tmp_path: Path) -> None:
     assert "## 候选链接" in content
 
 
+def test_import_github_awesome_page_writes_entry_markdown_file(tmp_path: Path) -> None:
+    created = import_url(
+        "https://github.com/Calinou/awesome-gamedev",
+        vault_root=tmp_path,
+        html=(FIXTURES_DIR / "github_awesome_gamedev.html").read_text(
+            encoding="utf-8"
+        ),
+        imported_at="2026-03-08",
+    )
+
+    entry_note = tmp_path / "20_入口页" / "GitHub - Calinou - awesome-gamedev.md"
+
+    assert entry_note in created
+    assert entry_note.exists()
+    content = entry_note.read_text(encoding="utf-8")
+    assert "type: entry_page" in content
+    assert 'source: GitHub' in content
+    assert "Bosca Ceoil Blue - https://github.com/YuriSizov/boscaceoil-blue" in content
+    assert "https://opensource.org/license/MIT" not in content
+
+
 def test_import_article_writes_web_note_and_pattern_note(tmp_path: Path) -> None:
     created = import_url(
         "https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation",
