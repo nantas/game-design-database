@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
@@ -15,7 +16,8 @@ def classify_page_type(url: str) -> PageType:
 
 
 def _note_path(directory: str, title: str) -> Path:
-    safe_title = title.replace("/", "-").strip()
+    safe_title = re.sub(r'[\\/:*?"<>|]+', " - ", title)
+    safe_title = re.sub(r"\s+", " ", safe_title).strip().rstrip(".")
     return Path(directory) / f"{safe_title}.md"
 
 
