@@ -1,0 +1,17 @@
+[project]
+name = "game-design-patterns"
+version = "0.1.0"
+description = "面向 Agent 的游戏设计模式 Obsidian 仓库"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
