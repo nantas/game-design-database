@@ -1,8 +1,13 @@
+import re
 from urllib.parse import parse_qs, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
-from game_design_patterns.models import EntryCandidate, ExtractedEntryPage
+from game_design_patterns.models import (
+    EntryCandidate,
+    ExtractedArticle,
+    ExtractedEntryPage,
+)
 
 
 def extract_entry_page(html: str, source_url: str) -> ExtractedEntryPage:
@@ -40,6 +45,29 @@ def extract_entry_page(html: str, source_url: str) -> ExtractedEntryPage:
         source_url=source_url,
         candidates=candidates,
         summary=summary,
+    )
+
+
+def extract_article(html: str, source_url: str) -> ExtractedArticle:
+    soup = BeautifulSoup(html, "html.parser")
+    source_name = _extract_site_name(soup, source_url)
+    title = _extract_article_title(soup)
+    author = _extract_author(soup)
+    published_at = _extract_published_at(soup)
+    paragraphs = _extract_article_paragraphs(soup)
+    summary = _build_summary(paragraphs)
+    pattern_candidates = _pattern_candidates_from_title(title)
+    evidence = [paragraphs[0]] if paragraphs else []
+
+    return ExtractedArticle(
+        title=title,
+        source_name=source_name,
+        source_url=source_url,
+        author=author,
+        published_at=published_at,
+        summary=summary,
+        pattern_candidates=pattern_candidates,
+        evidence=evidence,
     )
 
 
@@ -88,3 +116,80 @@ def _extract_anchor_title(anchor) -> str:
         return " ".join(image["alt"].split())
 
     return ""
+
+
+def _extract_article_title(soup: BeautifulSoup) -> str:
+    heading = soup.find("h1")
+    if heading:
+        return " ".join(heading.get_text(" ", strip=True).split())
+
+    if soup.title and soup.title.string:
+        return soup.title.string.split("—")[0].strip()
+
+    return "Untitled Article"
+
+
+def _extract_author(soup: BeautifulSoup) -> str:
+    author_link = soup.select_one(".blog-author-name")
+    if author_link:
+        return " ".join(author_link.get_text(" ", strip=True).split())
+
+    author_meta = soup.find("meta", attrs={"name": "author"})
+    if author_meta and author_meta.get("content"):
+        return author_meta["content"].strip()
+
+    return ""
+
+
+def _extract_published_at(soup: BeautifulSoup) -> str:
+    meta = soup.find("meta", attrs={"itemprop": "datePublished"})
+    if meta and meta.get("content"):
+        return meta["content"][:10]
+
+    time_tag = soup.find("time")
+    if time_tag and time_tag.get("datetime"):
+        return time_tag["datetime"]
+
+    return ""
+
+
+def _extract_article_paragraphs(soup: BeautifulSoup) -> list[str]:
+    paragraphs: list[str] = []
+
+    for paragraph in soup.select(".sqs-html-content p"):
+        text = " ".join(paragraph.get_text(" ", strip=True).split())
+        if len(text) < 40:
+            continue
+        if text in paragraphs:
+            continue
+        paragraphs.append(text)
+
+    return paragraphs
+
+
+def _build_summary(paragraphs: list[str]) -> list[str]:
+    if not paragraphs:
+        return []
+    return paragraphs[:3]
+
+
+def _pattern_candidates_from_title(title: str) -> list[str]:
+    normalized = re.sub(r"^(The|A|An)\s+", "", title).strip()
+    normalized = re.sub(r"^(Sweet|Great|Art of)\s+", "", normalized).strip()
+    normalized = re.sub(r"^(Sweet Art of)\s+", "", normalized, flags=re.IGNORECASE)
+
+    replacements = [
+        ("The Sweet Art of ", ""),
+        ("The Art of ", ""),
+        ("The Magic Behind ", ""),
+    ]
+    for prefix, replacement in replacements:
+        if normalized.startswith(prefix):
+            normalized = normalized.replace(prefix, replacement, 1).strip()
+
+    if title.startswith("The Sweet Art of "):
+        normalized = title.removeprefix("The Sweet Art of ").strip()
+    elif title.startswith("The Art of "):
+        normalized = title.removeprefix("The Art of ").strip()
+
+    return [normalized] if normalized else []
