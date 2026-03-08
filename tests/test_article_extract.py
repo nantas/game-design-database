@@ -4,6 +4,9 @@ from game_design_patterns.html_extract import extract_article
 
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "deconstructor_article.html"
+GAME_DESIGN_SKILLS_FIXTURE_PATH = (
+    Path(__file__).parent / "fixtures" / "game_design_skills_core_loop.html"
+)
 
 
 def test_extract_article_title_author_and_date() -> None:
@@ -44,3 +47,16 @@ def test_extract_article_pattern_candidates_are_present() -> None:
     )
 
     assert "Feature Adaptation" in extracted.pattern_candidates
+
+
+def test_extract_article_supports_game_design_skills_article() -> None:
+    extracted = extract_article(
+        GAME_DESIGN_SKILLS_FIXTURE_PATH.read_text(encoding="utf-8"),
+        "https://gamedesignskills.com/game-design/core-loops-in-gameplay/",
+    )
+
+    assert extracted.title == "Designing The Core Gameplay Loop: A Beginner’s Guide"
+    assert extracted.author == "Alexander Brazie"
+    assert extracted.published_at == "2023-10-06"
+    assert extracted.summary
+    assert "gameplay loop" in extracted.summary[0].lower()

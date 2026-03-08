@@ -84,3 +84,6 @@ uv run python tools/import_url.py 'https://www.deconstructoroffun.com/blog/2024/
 - 入口页：`20_入口页/Deconstructor of Fun - Deconstructions.md`
 - 网页卡：`30_网页卡/The Sweet Art of Feature Adaptation.md`
 - 模式卡：`40_设计模式/Feature Adaptation.md`
+- 第二来源页：`10_来源/Game Design Skills.md`
+- 第二来源网页卡：`30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide.md`
+- 第二来源模式卡：`40_设计模式/Core Gameplay Loop.md`

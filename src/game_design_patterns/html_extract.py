@@ -138,6 +138,16 @@ def _extract_author(soup: BeautifulSoup) -> str:
     if author_meta and author_meta.get("content"):
         return author_meta["content"].strip()
 
+    twitter_label = soup.find("meta", attrs={"name": "twitter:label1"})
+    twitter_data = soup.find("meta", attrs={"name": "twitter:data1"})
+    if (
+        twitter_label
+        and twitter_data
+        and twitter_label.get("content", "").strip().lower() == "written by"
+        and twitter_data.get("content")
+    ):
+        return twitter_data["content"].strip()
+
     return ""
 
 
@@ -146,17 +156,40 @@ def _extract_published_at(soup: BeautifulSoup) -> str:
     if meta and meta.get("content"):
         return meta["content"][:10]
 
+    article_meta = soup.find("meta", attrs={"property": "article:published_time"})
+    if article_meta and article_meta.get("content"):
+        return article_meta["content"][:10]
+
     time_tag = soup.find("time")
     if time_tag and time_tag.get("datetime"):
-        return time_tag["datetime"]
+        return time_tag["datetime"][:10]
 
     return ""
 
 
 def _extract_article_paragraphs(soup: BeautifulSoup) -> list[str]:
+    selectors = [
+        ".sqs-html-content p",
+        ".elementor-widget-theme-post-content p",
+        "[class*='entry-content'] p",
+        "[class*='post-content'] p",
+        "[itemprop='articleBody'] p",
+        "article p",
+        "main p",
+    ]
+
+    for selector in selectors:
+        paragraphs = _collect_paragraphs(soup.select(selector))
+        if paragraphs:
+            return paragraphs
+
+    return []
+
+
+def _collect_paragraphs(nodes) -> list[str]:
     paragraphs: list[str] = []
 
-    for paragraph in soup.select(".sqs-html-content p"):
+    for paragraph in nodes:
         text = " ".join(paragraph.get_text(" ", strip=True).split())
         if len(text) < 40:
             continue
