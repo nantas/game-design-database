@@ -29,6 +29,11 @@ tags: [game-design, source, gamedesignskills]
 - 页面里可能同时存在发布时间与更新时间；导入时应优先保留发布时间，避免把修订时间当成首发时间。
 - 标题常带 `A Beginner’s Guide` 一类教学后缀，模式卡主词条需要人工归并。
 
+## 已验证样例
+
+- 网页卡：[[30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide|Designing The Core Gameplay Loop: A Beginner’s Guide]]
+- 模式卡：[[40_设计模式/Core Gameplay Loop|Core Gameplay Loop]]
+
 ## 相关入口页
 
 - 暂未建立入口页；如后续继续验证，可从站点 sitemap 或 `game-design` 分类继续挑选代表性文章。
