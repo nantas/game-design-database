@@ -15,6 +15,7 @@ from game_design_patterns.models import EntryPageNote, PatternNote, WebNote
 from game_design_patterns.paths import (
     classify_page_type,
     entry_page_path,
+    note_link,
     pattern_note_path,
     web_note_path,
 )
@@ -103,8 +104,8 @@ def _import_article(
 ) -> list[Path]:
     extracted = extract_article(html, url)
     pattern_title = extracted.pattern_candidates[0] if extracted.pattern_candidates else extracted.title
-    pattern_link = f"[[40_设计模式/{pattern_title}|{pattern_title}]]"
-    web_link = f"[[30_网页卡/{extracted.title}|{extracted.title}]]"
+    pattern_link = note_link(pattern_note_path(pattern_title), pattern_title)
+    web_link = note_link(web_note_path(extracted.title), extracted.title)
 
     web_note = WebNote(
         title=extracted.title,

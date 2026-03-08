@@ -16,6 +16,9 @@ tags: ["game-design", "web-note"]
 - 循环可以非常简单，例如识别障碍并跳跃躲避；也可以非常复杂，例如组织团队、击败敌人并分配战利品。
 - core gameplay loop 是其他外层循环的基础，外围系统应围绕这条核心行为链提供目标、反馈与延展。
 
+## 来源关联
+- [[10_来源/Game Design Skills|Game Design Skills]]
+
 ## 提炼出的设计模式
 - [[40_设计模式/Core Gameplay Loop|Core Gameplay Loop]]
 

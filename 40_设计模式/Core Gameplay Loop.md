@@ -34,11 +34,11 @@ tags: ["game-design", "pattern"]
 
 ## 相关案例
 
-- [[30_网页卡/Designing The Core Gameplay Loop: A Beginner’s Guide|Designing The Core Gameplay Loop: A Beginner’s Guide]]
+- [[30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide|Designing The Core Gameplay Loop: A Beginner’s Guide]]
 
 ## 证据来源
 
-- [[30_网页卡/Designing The Core Gameplay Loop: A Beginner’s Guide|Designing The Core Gameplay Loop: A Beginner’s Guide]]
+- [[30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide|Designing The Core Gameplay Loop: A Beginner’s Guide]]
 
 ## 相关模式
 

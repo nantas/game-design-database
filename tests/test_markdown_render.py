@@ -29,6 +29,8 @@ def test_render_web_note_contains_fixed_sections() -> None:
     assert "type: web_note" in rendered
     assert 'url: "https://example.com/clash-royale"' in rendered
     assert "## 内容摘要" in rendered
+    assert "## 来源关联" in rendered
+    assert "[[10_来源/Deconstructor of Fun|Deconstructor of Fun]]" in rendered
     assert "## 提炼出的设计模式" in rendered
     assert "## 关键证据" in rendered
 

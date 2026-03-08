@@ -72,3 +72,10 @@ def test_import_article_supports_game_design_skills_fixture(tmp_path: Path) -> N
     assert 'author: "Alexander Brazie"' in content
     assert "published_at: 2023-10-06" in content
     assert "In game design" in content
+    assert "[[10_来源/Game Design Skills|Game Design Skills]]" in content
+
+    pattern_content = pattern_note.read_text(encoding="utf-8")
+    assert (
+        "[[30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide|"
+        "Designing The Core Gameplay Loop: A Beginner’s Guide]]"
+    ) in pattern_content
