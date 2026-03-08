@@ -26,6 +26,15 @@ class EntryPageNote:
 
 
 @dataclass(slots=True)
+class ExtractedEntryPage:
+    title: str
+    source_name: str
+    source_url: str
+    candidates: list[EntryCandidate] = field(default_factory=list)
+    summary: list[str] = field(default_factory=list)
+
+
+@dataclass(slots=True)
 class WebNote:
     title: str
     source: str
