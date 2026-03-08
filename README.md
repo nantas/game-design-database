@@ -51,3 +51,36 @@
 - 如果 URL 指向文章页，则生成网页卡片，并尝试提炼设计模式卡
 - 如果 URL 指向入口页，则生成入口页卡，并抽取后续待处理链接
 - 查询层默认依赖 Obsidian 与文本搜索，不额外维护数据库
+
+## 如何在 Obsidian 中使用
+
+1. 在 Obsidian 中选择“Open folder as vault”
+2. 打开 `~/projects/game-design-patterns/`
+3. 优先从 `10_来源/`、`20_入口页/` 和 `40_设计模式/` 开始浏览
+
+## 导入命令
+
+首次安装依赖：
+
+```bash
+uv sync
+```
+
+导入入口页：
+
+```bash
+uv run python tools/import_url.py 'https://www.deconstructoroffun.com/blog?category=Deconstructions'
+```
+
+导入单篇文章：
+
+```bash
+uv run python tools/import_url.py 'https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation'
+```
+
+## 当前样例
+
+- 来源页：`10_来源/Deconstructor of Fun.md`
+- 入口页：`20_入口页/Deconstructor of Fun - Deconstructions.md`
+- 网页卡：`30_网页卡/The Sweet Art of Feature Adaptation.md`
+- 模式卡：`40_设计模式/Feature Adaptation.md`
