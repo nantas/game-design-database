@@ -36,6 +36,10 @@ def _note_path(directory: str, title: str) -> Path:
     return Path(directory) / f"{safe_title}.md"
 
 
+def note_link(note_path: Path, label: str) -> str:
+    return f"[[{note_path.with_suffix('').as_posix()}|{label}]]"
+
+
 def source_note_path(title: str) -> Path:
     return _note_path("10_来源", title)
 

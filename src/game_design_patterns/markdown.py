@@ -2,6 +2,7 @@ from collections.abc import Iterable
 import re
 
 from game_design_patterns.models import EntryPageNote, PatternNote, WebNote
+from game_design_patterns.paths import note_link, source_note_path
 
 
 def _quote(value: str) -> str:
@@ -40,6 +41,7 @@ def _bullet_lines(items: Iterable[str]) -> list[str]:
 
 
 def render_web_note(note: WebNote) -> str:
+    source_link = note_link(source_note_path(note.source), note.source)
     frontmatter = _frontmatter(
         {
             "title": note.title,
@@ -60,6 +62,9 @@ def render_web_note(note: WebNote) -> str:
         "",
         "## 内容摘要",
         *_bullet_lines(note.summary),
+        "",
+        "## 来源关联",
+        *_bullet_lines([source_link]),
         "",
         "## 提炼出的设计模式",
         *_bullet_lines(note.pattern_links),
