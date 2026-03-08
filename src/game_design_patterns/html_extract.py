@@ -160,6 +160,8 @@ def _extract_article_paragraphs(soup: BeautifulSoup) -> list[str]:
         text = " ".join(paragraph.get_text(" ", strip=True).split())
         if len(text) < 40:
             continue
+        if _looks_like_author_bio(text):
+            continue
         if text in paragraphs:
             continue
         paragraphs.append(text)
@@ -193,3 +195,14 @@ def _pattern_candidates_from_title(title: str) -> list[str]:
         normalized = title.removeprefix("The Art of ").strip()
 
     return [normalized] if normalized else []
+
+
+def _looks_like_author_bio(text: str) -> bool:
+    lowered = text.lower()
+    if lowered.startswith("written by "):
+        return True
+    if lowered.startswith("when ") and "you’ll find" in lowered:
+        return True
+    if lowered.startswith("when ") and "isn’t busy" in lowered:
+        return True
+    return False

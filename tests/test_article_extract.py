@@ -27,6 +27,16 @@ def test_extract_article_summary_is_not_empty() -> None:
     assert len(extracted.summary[0]) > 40
 
 
+def test_extract_article_summary_skips_author_bio() -> None:
+    extracted = extract_article(
+        FIXTURE_PATH.read_text(encoding="utf-8"),
+        "https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation",
+    )
+
+    assert not extracted.summary[0].startswith("Written by")
+    assert "gaming industry" in extracted.summary[0]
+
+
 def test_extract_article_pattern_candidates_are_present() -> None:
     extracted = extract_article(
         FIXTURE_PATH.read_text(encoding="utf-8"),
