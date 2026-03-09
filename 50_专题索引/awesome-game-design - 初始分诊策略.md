@@ -135,7 +135,7 @@ tags: [game-design, topic-index, awesome-list, triage]
 
 - 不尝试导入 README 中的全部链接。
 - 不把 `awesome-game-design` README 本身当作 `30_网页卡/` 的直接证据页。
-- 不在本轮新建 `30_网页卡/` 或 `40_设计模式/`。
+- 除本次明确点名的 3 个 P1 PDF 外，不新建其他 `30_网页卡/`，也不新建 `40_设计模式/`。
 - 不把工具、引擎、泛开发学习资源混入当前游戏设计模式证据主队列。
 
 ## 2026-03-09 P1 稳定 intake triage
@@ -151,17 +151,41 @@ tags: [game-design, topic-index, awesome-list, triage]
   阻塞：原始 PDF 目前不可稳定直取，无法作为常规导入输入。
   下一步：补找同源或高可信镜像；在拿到稳定 PDF 入口前不进入导入。
 - Prince of Persia 2
-  结果：`ready-for-next-step`
+  结果：`通过筛查`
   资源形态：公开可访问 PDF。
-  判断：当前链接返回 `application/pdf`，可作为仓库常规下一步的候选输入。
-  下一步：后续按单 URL 正常流程建立网页卡并提炼模式候选。
+  判断：已建立 [[30_网页卡/Prince of Persia 2 - Design Bible|网页卡]]；OCR 可回收到水域教学段、throne room 绕路门禁和 broken sword 持续代价等正文证据。
+  下一步：保留在主队列；本轮只记录候选线索，不升格模式卡。
 - Condor's Diablo 1
-  结果：`ready-for-next-step`
+  结果：`通过筛查`
   资源形态：公开可访问 PDF。
-  判断：当前链接返回 `application/pdf`，可作为仓库常规下一步的候选输入。
-  下一步：后续按单 URL 正常流程建立网页卡并提炼模式候选。
+  判断：已建立 [[30_网页卡/Condor's Diablo 1 - Pitch|网页卡]]；OCR 可回收到随机地牢生成、set piece、左右键交互和 town / temple 节点等正文证据。
+  下一步：保留在主队列；本轮只记录候选线索，不升格模式卡。
 - Grim Fandango
-  结果：`ready-for-next-step`
+  结果：`通过筛查`
   资源形态：公开可访问 PDF。
-  判断：当前链接返回 `application/pdf`，可作为仓库常规下一步的候选输入。
-  下一步：后续按单 URL 正常流程建立网页卡并提炼模式候选。
+  判断：已建立 [[30_网页卡/Grim Fandango - Puzzle Document|网页卡]]；OCR 可回收到多步谜题链、空间阻塞和 NPC 状态切换等正文证据。
+  下一步：保留在主队列；本轮只记录候选线索，不升格模式卡。
+
+## 2026-03-09 P1 PDF 首轮逐卡筛查结论
+
+- [[30_网页卡/Prince of Persia 2 - Design Bible|Prince of Persia 2 - Design Bible]]
+  决策：通过筛查。
+  证据化理由：第 81 页明确把水池段写成 `practice session`；第 121 至 122 页说明 throne room 需要先走下方迷宫，且 broken sword 会把后续所有战斗伤害降为半点。这些内容都直接落在关卡教学、门禁结构和持续性代价设计上。
+  候选模式线索：先用低风险场景教授新交互，再在后续关卡放大同一机制压力。
+  筛后动作：保留网页卡，暂不升格模式卡；后续若继续归并，需补读更多页面降低 OCR 噪声影响。
+- [[30_网页卡/Condor's Diablo 1 - Pitch|Condor's Diablo 1 - Pitch]]
+  决策：通过筛查。
+  证据化理由：第 2 页把随机地牢生成写成核心卖点，并保留 `set piece`、`puzzles and traps`、`Deeper levels` 等词组；第 4 页补出移动、互动、施法与回镇补给节点，足以说明它讨论的是可复述的系统骨架。
+  候选模式线索：用随机布局维持重复游玩差异，同时用少量固定 set piece 维持手工设计的记忆点。
+  筛后动作：保留网页卡，暂不升格模式卡；后续如需要可继续补抽更多页，分离设计 pitch 与商业 pitch 部分。
+- [[30_网页卡/Grim Fandango - Puzzle Document|Grim Fandango - Puzzle Document]]
+  决策：通过筛查。
+  证据化理由：第 9、15、28 至 29、31 页都在写具体的谜题步骤，包括如何制造 `breakdown`、如何让 Bone Wagon 无人看守、如何用 forklift 卡住 elevator，以及如何触发一群 NPC 的状态变化。这些都是可直接复述的关卡谜题设计证据。
+  候选模式线索：把解法拆成场景内多步因果链，让道具、空间阻塞和 NPC 反应共同构成门禁。
+  筛后动作：保留网页卡，暂不升格模式卡；后续若要继续归并，需把剧情页与纯谜题页进一步拆开复核。
+
+## 当前主队列更新
+
+- 本轮只推进 3/3 已标记 `ready-for-next-step` 的 P1 PDF：Prince of Persia 2、Condor's Diablo 1、Grim Fandango。
+- 这 3 条在首轮逐卡筛查中均为“通过筛查”，因此继续留在 awesome-game-design 当前主队列。
+- Monaco 与 Id Doom 保持原阻塞状态，不在本轮处理范围内。
