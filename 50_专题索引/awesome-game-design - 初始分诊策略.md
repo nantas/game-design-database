@@ -112,9 +112,9 @@ tags: [game-design, topic-index, awesome-list, triage]
 - Balatro Timeline
   理由：现代、可直接访问、作者自述型材料，进入成本低。
 - System Shock 2
-  理由：经典 postmortem，适合提炼系统取舍与开发反思。
+  理由：归档页可访问，且正文明确拆出了系统复用、界面取舍与开发反思等可复核段落。
 - Deus Ex
-  理由：经典沉浸式模拟案例，预期有高价值设计判断。
+  理由：归档页可访问，且正文直接给出设计哲学、任务解法规则与范围控制原则。
 - Diablo II
   理由：成熟 ARPG 案例，适合关注循环、掉落与长期驱动结构。
 - BioShock
@@ -135,7 +135,8 @@ tags: [game-design, topic-index, awesome-list, triage]
 
 - 不尝试导入 README 中的全部链接。
 - 不把 `awesome-game-design` README 本身当作 `30_网页卡/` 的直接证据页。
-- 除本次明确点名的 3 个 P1 PDF 外，不新建其他 `30_网页卡/`，也不新建 `40_设计模式/`。
+- 本次增量更新只处理已点名的 3 个 P2 postmortem：Balatro Timeline、System Shock 2、Deus Ex。
+- 本轮不新建 `40_设计模式/`，即使导入脚本默认会生成候选模式卡，也需要回收到网页卡 + 专题索引层。
 - 不把工具、引擎、泛开发学习资源混入当前游戏设计模式证据主队列。
 
 ## 2026-03-09 P1 稳定 intake triage
@@ -184,8 +185,39 @@ tags: [game-design, topic-index, awesome-list, triage]
   候选模式线索：把解法拆成场景内多步因果链，让道具、空间阻塞和 NPC 反应共同构成门禁。
   筛后动作：保留网页卡，暂不升格模式卡；后续若要继续归并，需把剧情页与纯谜题页进一步拆开复核。
 
+## 2026-03-09 P2 postmortem 首轮 intake triage
+
+- Balatro Timeline
+  结果：`通过筛查`
+  资源形态：可直接访问的作者博客文章。
+  判断：已建立 [[30_网页卡/The Balatro Timeline|网页卡]]；正文保留了 `CHIP X MULT`、Jokers、boss blinds、skip tag system、tutorial revamp 与 demo 边界调整等系统演化证据。
+  下一步：保留在主队列；本轮只记录候选线索，不升格模式卡。
+- System Shock 2
+  结果：`通过筛查`
+  资源形态：Wayback 归档的 Gamasutra 多页 postmortem。
+  判断：已建立 [[30_网页卡/Postmortem - Irrational Games' System Shock 2|网页卡]]；正文明确讨论按技术定设计、可复用 security system、界面简化与互动 NPC 取舍。
+  下一步：保留在主队列；本轮只记录候选线索，不升格模式卡。
+- Deus Ex
+  结果：`通过筛查`
+  资源形态：Wayback 归档的 Gamasutra 多页 postmortem。
+  判断：已建立 [[30_网页卡/Postmortem - Ion Storm's Deus Ex|网页卡]]；正文直接给出玩家表达、多解任务、互联空间与工具集约束等设计原则。
+  下一步：保留在主队列；本轮只记录候选线索，不升格模式卡。
+
+## 2026-03-09 P2 postmortem 首轮逐卡筛查结论
+
+### 通过筛查
+- [[30_网页卡/The Balatro Timeline|The Balatro Timeline]]：决策为“通过筛查”。证据化理由：正文不只是在记流水账，而是明确记录了 `CHIP X MULT` 先于大部分内容变体确定、随后再逐步加入 Jokers / boss blinds / economy，并在公开测试后转向更偏玩家反馈的调优，连 demo 也从回合数限制改成内容限制。候选模式线索：先稳定一个高可读性的核心计分骨架，再逐步叠加可组合变体，并用玩家反馈回修教学与试玩边界。筛后动作：保留网页卡，暂不升格模式卡。
+- [[30_网页卡/Postmortem - Irrational Games' System Shock 2|Postmortem: Irrational Games' System Shock 2]]：决策为“通过筛查”。证据化理由：正文明确提出 `designed to our technology`、`simple, reusable game-play elements`，并用 security camera / security system 解释如何用低成本通用系统反复生成玩法，同时讨论了界面简化和取消互动 NPC 的取舍。候选模式线索：优先围绕技术友好的通用系统搭出可重复组合的玩法骨架，再把复杂度留给关卡组合而不是单点脚本。筛后动作：保留网页卡，暂不升格模式卡。
+- [[30_网页卡/Postmortem - Ion Storm's Deus Ex|Postmortem: Ion Storm's Deus Ex]]：决策为“通过筛查”。证据化理由：正文把 `player expression`、`Problems not puzzles`、`Problems will have multiple solutions`、互联地图和 `rich but limited tool set` 写成显式规则，已经足以构成可复述的设计原则集合。候选模式线索：把任务设计成多路径问题空间，让技能、增强和物件共同支撑玩家自表达，而不是预写唯一解。筛后动作：保留网页卡，暂不升格模式卡。
+
+### 混合但信息不足
+- 本轮无。
+
+### 非游戏设计相关资源
+- 本轮无。
+
 ## 当前主队列更新
 
-- 本轮只推进 3/3 已标记 `ready-for-next-step` 的 P1 PDF：Prince of Persia 2、Condor's Diablo 1、Grim Fandango。
-- 这 3 条在首轮逐卡筛查中均为“通过筛查”，因此继续留在 awesome-game-design 当前主队列。
-- Monaco 与 Id Doom 保持原阻塞状态，不在本轮处理范围内。
+- P1 PDF 队列维持既有状态：Prince of Persia 2、Condor's Diablo 1、Grim Fandango 已通过筛查；Monaco 与 Id Doom 仍为阻塞。
+- 本轮新增完成 3/3 个 P2 postmortem：Balatro Timeline、System Shock 2、Deus Ex，且三者首轮逐卡筛查均为“通过筛查”。
+- Diablo II 与 BioShock 未纳入本轮处理，继续保持未处理状态。

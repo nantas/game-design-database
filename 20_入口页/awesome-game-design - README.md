@@ -26,9 +26,9 @@ tags: [game-design, entry-page, github, awesome-list]
 - [x] Prince of Persia 2 - https://www.popot.org/documentation/documents/1991-08-08_PoP2_Design_Bible.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：通过筛查 - 动作：已建立 [[30_网页卡/Prince of Persia 2 - Design Bible|网页卡]] - 原因：正文可回收到水域教学、绕路门禁与破损武器持续代价等设计证据
 - [x] Condor's Diablo 1 - http://www.graybeardgames.com/download/diablo_pitch.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：通过筛查 - 动作：已建立 [[30_网页卡/Condor's Diablo 1 - Pitch|网页卡]] - 原因：正文明确写到随机地牢、set piece、交互方式与回镇节点
 - [x] Grim Fandango - http://gameshelf.jmac.org/2008/11/13/GrimPuzzleDoc_small.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：通过筛查 - 动作：已建立 [[30_网页卡/Grim Fandango - Puzzle Document|网页卡]] - 原因：正文可回收到多步因果链谜题、空间门禁与 NPC 状态操控
-- [ ] Balatro Timeline - https://localthunk.com/blog/balatro-timeline-3aarh - 类别：Postmortems - 优先级：P2
-- [ ] System Shock 2 - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3406/postmortem_irrational_games_.php - 类别：Postmortems - 优先级：P2
-- [ ] Deus Ex - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3114/postmortem_ion_storms_deus_ex.php - 类别：Postmortems - 优先级：P2
+- [x] Balatro Timeline - https://localthunk.com/blog/balatro-timeline-3aarh - 类别：Postmortems - 优先级：P2 - 状态：通过筛查 - 动作：已建立 [[30_网页卡/The Balatro Timeline|网页卡]] - 原因：正文保留了 `CHIP X MULT`、Jokers、boss blinds、skip tag system 与 tutorial revamp 等系统演化证据
+- [x] System Shock 2 - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3406/postmortem_irrational_games_.php - 类别：Postmortems - 优先级：P2 - 状态：通过筛查 - 动作：已建立 [[30_网页卡/Postmortem - Irrational Games' System Shock 2|网页卡]] - 原因：正文明确讨论按技术定设计、可复用安全系统、界面简化与 NPC 取舍
+- [x] Deus Ex - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3114/postmortem_ion_storms_deus_ex.php - 类别：Postmortems - 优先级：P2 - 状态：通过筛查 - 动作：已建立 [[30_网页卡/Postmortem - Ion Storm's Deus Ex|网页卡]] - 原因：正文明确给出多解任务、互联空间、玩家表达与工具集约束等设计判断
 - [ ] Diablo II - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3124/postmortem_blizzards_diablo_ii.php - 类别：Postmortems - 优先级：P2
 - [ ] BioShock - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3774/postmortem_2k_boston2k_.php - 类别：Postmortems - 优先级：P2
 
