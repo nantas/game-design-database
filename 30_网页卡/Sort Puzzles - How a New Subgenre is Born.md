@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Sort Puzzles - How a New Subgenre is Born|Sort Puzzles: How a New Subgenre is Born]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Sort Puzzles have been around for years, occasionally breaking into the top charts but mostly living in the genre’s “other” bucket. They could attract installs, sometimes at scale, but consistently failed to turn that attention into meaningful IAP (In-App Purchase) revenue.

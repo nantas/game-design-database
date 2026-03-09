@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Magic Behind Magicabin’s ARPDAU|Magic Behind Magicabin’s ARPDAU]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Magicabin is a relatively new adventure game, released in 2022 by Ivy Mobile. It has quickly become a top-performing game for the publisher, accounting for over 70% of their revenue in 2024.

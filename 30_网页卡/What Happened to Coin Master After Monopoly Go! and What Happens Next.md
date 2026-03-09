@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/What Happened to Coin Master After Monopoly Go! and What Happens Next|What Happened to Coin Master After Monopoly Go! and What Happens Next]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - There’s an unspoken rule in gaming: if your mechanics are good, they’ll be copied. If your game is a megahit, it’ll be copied by countless other games. Most will do it worse, but eventually someone will do better.

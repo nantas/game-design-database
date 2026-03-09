@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars|4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Another Squad Busters post? Why? In July our analysis ( Squad Busters One Month Later: Down, But Not Out ) was very much focused on reviewing the game’s extremely risky go-to-market strategy, which boldly dismissed Supercell’s meticulous process.

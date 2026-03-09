@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Telegram x Web3 Gaming - Why So Popular and How Can I Get In On This -|Telegram x Web3 Gaming: Why So Popular and How Can I Get In On This?]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Guest post by David Fox , founder of Double Coconut — a design and development studio that has delivered hit mobile and web games for partners such as EA Sports, WB Games, Microsoft Casual Games, and more.

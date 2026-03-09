@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Squad Busters One Month Later - Down, But Not Out|Squad Busters One Month Later: Down, But Not Out]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Listen to Game Economist Cast for more juicy Game Economist insights.

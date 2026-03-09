@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Hay Day With a To-Do List - How Focus Friend Cracked Productivity Retention|Hay Day With a To-Do List: How Focus Friend Cracked Productivity Retention]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Apps have taken over as the IAP driver on App Store. They must be doing something right. We here at Deconstructor of Fun are here to share the insights. This deconstruction is from our consulting partner, Vin .

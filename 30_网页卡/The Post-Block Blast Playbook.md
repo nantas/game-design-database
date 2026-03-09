@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Post-Block Blast Playbook|Post-Block Blast Playbook]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Block Puzzles have been running the Hybridcasual Puzzle lane for a while now. If you look at download charts, it has become relatively normal to see multiple Block titles near the top simultaneously.

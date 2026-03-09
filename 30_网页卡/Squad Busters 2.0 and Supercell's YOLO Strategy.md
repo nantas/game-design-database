@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Squad Busters 2.0 and Supercell's YOLO Strategy|Squad Busters 2.0 and Supercell's YOLO Strategy]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Supercell has rebooted Squad Busters. Again. And they told us all about it in a roundtable interview with trusted game journalists. Massive kudos to Supercell for such unique openness that allows folks like me to dive two levels deeper.

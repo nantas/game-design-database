@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Win Streak - the Gift That Keeps on Giving|Win Streak: the Gift That Keeps on Giving]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Puzzle games have a simple yet addicting core loop: playing levels. Since playing levels is the core action, beating them becomes the primary goal for players as they continue enjoying their favorite puzzle game. However, having a simplistic target like "beating levels" brings joy only to a certain extent. Experienced players who churn through dozens of levels every day aren't satisfied with this simple target; they expect more in return for their investment of time and, hopefully, money.

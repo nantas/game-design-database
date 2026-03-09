@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Pixel Flow - The Publisher's Dream|Pixel Flow: The Publisher's Dream]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Pixel Flow isn’t one of those games that accidentally wins the lottery. It’s more like a game that shows up at the exact right moment, does a lot of things right, and then just keeps scaling.

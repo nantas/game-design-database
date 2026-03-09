@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Finding Genre Success - the Case of Gossip Harbor|Finding Genre Success: the Case of Gossip Harbor]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - If you follow the mobile gaming market, you’re probably aware of the “shark-fin” phenomenon—games that skyrocket in popularity only to plummet just as quickly. Gossip Harbor by Microfun defies this trend.. Since its release in 2022, Gossip Harbor has enjoyed remarkably stable and close to linear growth, which is especially impressive in a post ATT-world. Gossip Harbor has managed to cement a strong position in the merge-two space and the game currently reaches gross in-app purchase revenue levels above $500.000 on certain days according to Sensor Tower. The game makes use of rewarded video ads, which most likely contribute around 15-20% on top of IAP, which then puts us around a daily average of $535.000 (using July 2024 revenue as a base). This success translates to an astounding $195 million annual run rate, making Gossip Harbor a clear standout case worth studying.

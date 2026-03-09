@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Screw Puzzle Gold Rush|Screw Puzzle Gold Rush]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Screw Puzzles have only been around for a couple of years, but they already sit near the top of the Hybridcasual Puzzle pile. The appeal is obvious: Fast readability, satisfying interaction, and a clean decision loop that scales without getting messy.

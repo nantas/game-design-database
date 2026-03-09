@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Time Blast - Will it revive the Rest of the Genre -|Time Blast: Will it revive the Rest of the Genre?]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - It is no secret that puzzle games dominate a significant share of the mobile gaming market. Over the last decade, the puzzle market has become fiercely competitive, with various subgenres vying to capture the attention of puzzle players. While Match-3 remains the dominant force in this competition, we've seen other subgenres like Merge taking the second place, while others, like Tile Match, showed potential but ultimately fell short.

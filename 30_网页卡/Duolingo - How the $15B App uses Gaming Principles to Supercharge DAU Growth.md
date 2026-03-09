@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Duolingo - How the $15B App uses Gaming Principles to Supercharge DAU Growth|Duolingo: How the $15B App uses Gaming Principles to Supercharge DAU Growth]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - Duolingo has managed to capture the popular zeitgeist with more than 100 million monthly active users. To put its success in perspective: Duolingo’s market capitalization is 10x greater than its next biggest competitor (Babbel), and its daily active user count is similar to Discord and Twitch. It has achieved significant cultural awareness, too: Duolingo has 14M TikTok followers, is a key partner in Netflix’s Squid Games 2 marketing and was featured in the $1B global hit movie Barbie . How is an education app rivaling the popularity of media & entertainment products?

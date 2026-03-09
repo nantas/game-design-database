@@ -20,7 +20,7 @@ tags: ["game-design", "web-note"]
 - [[10_来源/Deconstructor of Fun|Deconstructor of Fun]]
 
 ## 提炼出的设计模式
-- [[40_设计模式/Daily Missions in Puzzles - Why should we see them more often -|Daily Missions in Puzzles: Why should we see them more often?]]
+- 待后续聚类归并；本轮先保留网页卡，不单独创建模式卡。
 
 ## 关键证据
 - The world of mobile gaming has grown incredibly diverse, with subgenres branching out and becoming increasingly specialized. Whether it’s the strategic depth of 4X games or the fast-paced excitement of shooter games, each subgenre demands a unique approach to game design and player engagement. Although specialization is highly sought after, there remains a surprising amount of overlap in the features and mechanics used across these different genres. Elements like progression systems, in-game currencies, and, importantly, daily missions are common practice, serving as universal tools to enhance player retention and engagement across the board.
