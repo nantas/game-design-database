@@ -32,7 +32,7 @@ tags: ["game-design", "entry-page"]
 - How Drama and Fake Ads Convert To Real Profits - https://www.deconstructoroffun.com/blog/2025/2/10/the-soap-operas-driving-success-across-mobile-games-post-att - 状态：已导入网页卡
 - Why Some Puzzle Games are More Addicting Than Others? - https://www.deconstructoroffun.com/blog/2025/2/3/hybridcasual-puzzles-expanding-the-puzzle-market - 状态：已导入网页卡
 - Telegram x Web3 Gaming: Why So Popular and How Can I Get In On This? - https://www.deconstructoroffun.com/blog/2024/11/25/telegram-has-proven-itself-as-a-viable-platform-for-crypto-gaming-whats-next - 状态：已导入网页卡
-- The Sweet Art of Feature Adaptation - https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation - 状态：已归入模式聚类
+- The Sweet Art of Feature Adaptation - https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation - 状态：已导入网页卡；待逐卡筛查
 - 4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars - https://www.deconstructoroffun.com/blog/2024/9/30/4-x-reasons-why-squad-busters-suffers-while-brawl-stars-soars - 状态：已导入网页卡
 - Daily Missions in Puzzles: Why should we see them more often? - https://www.deconstructoroffun.com/blog/2024/9/23/daily-missions-in-puzzles-why-should-we-see-them-more-often - 状态：已导入网页卡
 - Time Blast: Will it revive the Rest of the Genre? - https://www.deconstructoroffun.com/blog/2024/9/2/time-blast-will-it-revive-the-blast-subgenre - 状态：已导入网页卡
@@ -42,3 +42,4 @@ tags: ["game-design", "entry-page"]
 
 ## 后续处理
 - 按冻结候选列表逐篇处理；若需纳入新文章，先开启下一轮并更新冻结清单。
+- 当前第二批执行说明见 [[50_专题索引/Deconstructor of Fun - 第二批逐卡筛查|Deconstructor of Fun - 第二批逐卡筛查]]。

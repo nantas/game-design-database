@@ -48,9 +48,21 @@
 
 第一阶段只围绕一个核心动作：`导入一个 URL`。
 
-- 如果 URL 指向文章页，则生成网页卡片，并尝试提炼设计模式卡
+- 如果 URL 指向文章页，则先生成网页卡片，再按正文证据判断是否有资格进入模式整理
 - 如果 URL 指向入口页，则生成入口页卡，并抽取后续待处理链接
 - 查询层默认依赖 Obsidian 与文本搜索，不额外维护数据库
+
+补充约束：
+
+- 本仓库只关心游戏设计模式，不会把所有导入页面都强行推进到模式聚类。
+- 单篇网页如果达不到有意义的游戏设计相关性与信息量门槛，应停留在网页卡或进入归档，不产出模式结论。
+
+## Deconstructor 第二批说明
+
+- `Deconstructor of Fun` 当前第二批不再采用“先按标题聚类”的工作法。
+- 正确流程是先逐网页卡筛查，判断其是否通过游戏设计相关性与有效信息门槛。
+- 旧的标题级 cluster guess 只保留为历史暂定线索，不能当作正式模式结论。
+- 当前评审入口见 `50_专题索引/Deconstructor of Fun - 第二批逐卡筛查.md`
 
 ## 如何在 Obsidian 中使用
 
@@ -84,6 +96,7 @@ uv run python tools/import_url.py 'https://www.deconstructoroffun.com/blog/2024/
 - 入口页：`20_入口页/Deconstructor of Fun - Deconstructions.md`
 - 网页卡：`30_网页卡/The Sweet Art of Feature Adaptation.md`
 - 模式卡：`40_设计模式/Feature Adaptation.md`
+- 第二批逐卡筛查说明：`50_专题索引/Deconstructor of Fun - 第二批逐卡筛查.md`
 - 第二来源页：`10_来源/Game Design Skills.md`
 - 第二来源网页卡：`30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide.md`
 - 第二来源模式卡：`40_设计模式/Core Gameplay Loop.md`
