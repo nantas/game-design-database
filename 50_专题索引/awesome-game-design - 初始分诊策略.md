@@ -137,3 +137,31 @@ tags: [game-design, topic-index, awesome-list, triage]
 - 不把 `awesome-game-design` README 本身当作 `30_网页卡/` 的直接证据页。
 - 不在本轮新建 `30_网页卡/` 或 `40_设计模式/`。
 - 不把工具、引擎、泛开发学习资源混入当前游戏设计模式证据主队列。
+
+## 2026-03-09 P1 稳定 intake triage
+
+- Monaco
+  结果：`blocked`
+  资源形态：Facebook 社交页 HTML。
+  阻塞：当前 URL 指向社交平台页面，不是稳定正文载体；也不符合仓库当前“非目标”里的社媒页面范围。
+  下一步：仅记录阻塞，后续如找到同文档的公开镜像或可稳定访问副本，再重新进入 intake。
+- Id Doom
+  结果：`blocked`
+  资源形态：PDF 直链，但当前请求返回 Cloudflare challenge HTML。
+  阻塞：原始 PDF 目前不可稳定直取，无法作为常规导入输入。
+  下一步：补找同源或高可信镜像；在拿到稳定 PDF 入口前不进入导入。
+- Prince of Persia 2
+  结果：`ready-for-next-step`
+  资源形态：公开可访问 PDF。
+  判断：当前链接返回 `application/pdf`，可作为仓库常规下一步的候选输入。
+  下一步：后续按单 URL 正常流程建立网页卡并提炼模式候选。
+- Condor's Diablo 1
+  结果：`ready-for-next-step`
+  资源形态：公开可访问 PDF。
+  判断：当前链接返回 `application/pdf`，可作为仓库常规下一步的候选输入。
+  下一步：后续按单 URL 正常流程建立网页卡并提炼模式候选。
+- Grim Fandango
+  结果：`ready-for-next-step`
+  资源形态：公开可访问 PDF。
+  判断：当前链接返回 `application/pdf`，可作为仓库常规下一步的候选输入。
+  下一步：后续按单 URL 正常流程建立网页卡并提炼模式候选。

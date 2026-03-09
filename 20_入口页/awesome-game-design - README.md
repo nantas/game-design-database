@@ -21,11 +21,11 @@ tags: [game-design, entry-page, github, awesome-list]
 
 ### 高价值候选主队列
 
-- [ ] Monaco - https://www.facebook.com/notes/monaco/the-original-monaco-game-design-from-2003/496033541995/ - 类别：Finished games GDD - 优先级：P1
-- [ ] Id Doom - https://5years.doomworld.com/doombible/doombible.pdf - 类别：Finished games GDD - 优先级：P1
-- [ ] Prince of Persia 2 - https://www.popot.org/documentation/documents/1991-08-08_PoP2_Design_Bible.pdf - 类别：Finished games GDD - 优先级：P1
-- [ ] Condor's Diablo 1 - http://www.graybeardgames.com/download/diablo_pitch.pdf - 类别：Finished games GDD - 优先级：P1
-- [ ] Grim Fandango - http://gameshelf.jmac.org/2008/11/13/GrimPuzzleDoc_small.pdf - 类别：Finished games GDD - 优先级：P1
+- [ ] Monaco - https://www.facebook.com/notes/monaco/the-original-monaco-game-design-from-2003/496033541995/ - 类别：Finished games GDD - 优先级：P1 - 状态：blocked - 原因：当前落在 Facebook 社交页，缺少稳定可抽取正文，不适合仓库现阶段导入
+- [ ] Id Doom - https://5years.doomworld.com/doombible/doombible.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：blocked - 原因：当前请求返回 Cloudflare challenge 页面，原始 PDF 直链不可稳定访问
+- [ ] Prince of Persia 2 - https://www.popot.org/documentation/documents/1991-08-08_PoP2_Design_Bible.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：ready-for-next-step - 原因：当前为可直接访问的公开 PDF，适合按正常网页卡流程处理
+- [ ] Condor's Diablo 1 - http://www.graybeardgames.com/download/diablo_pitch.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：ready-for-next-step - 原因：当前为可直接访问的公开 PDF，适合按正常网页卡流程处理
+- [ ] Grim Fandango - http://gameshelf.jmac.org/2008/11/13/GrimPuzzleDoc_small.pdf - 类别：Finished games GDD - 优先级：P1 - 状态：ready-for-next-step - 原因：当前为可直接访问的公开 PDF，适合按正常网页卡流程处理
 - [ ] Balatro Timeline - https://localthunk.com/blog/balatro-timeline-3aarh - 类别：Postmortems - 优先级：P2
 - [ ] System Shock 2 - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3406/postmortem_irrational_games_.php - 类别：Postmortems - 优先级：P2
 - [ ] Deus Ex - https://web.archive.org/web/20190325062431/http://www.gamasutra.com/view/feature/3114/postmortem_ion_storms_deus_ex.php - 类别：Postmortems - 优先级：P2
