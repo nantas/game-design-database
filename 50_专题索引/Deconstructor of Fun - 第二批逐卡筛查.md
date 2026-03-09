@@ -49,30 +49,33 @@ tags: [game-design, topic-index, deconstructoroffun]
 ## 当前批次筛查结果
 - 记录用途：保留 20/20 已完成的逐卡判定，不再把整批条目视为统一待处理队列。
 - 主队列定义：只有“通过筛查”的网页卡继续保留为后续跨卡复核候选；“非游戏设计相关资源”已从主队列移出并在下方归档。
-- 结果字段：`网页卡`、`决策`、`证据化理由`、`筛后动作`。
+- 结果字段改为列表内联表述：`网页卡`、`决策`、`证据化理由`、`筛后动作`。
 
-| 网页卡 | 决策 | 证据化理由 | 筛后动作 |
-| --- | --- | --- | --- |
-| [[30_网页卡/Hay Day With a To-Do List - How Focus Friend Cracked Productivity Retention|Hay Day With a To-Do List: How Focus Friend Cracked Productivity Retention]] | 非游戏设计相关资源 | 正文主体是生产力 app 复盘，现有内容只保留“把 progression 做成产品核心”的泛化说法，没有稳定回到游戏系统或机制证据。 | 移出主队列；登记到下方归档。 |
-| [[30_网页卡/The Screw Puzzle Gold Rush|The Screw Puzzle Gold Rush]] | 通过筛查 | 正文明确指向 Screw Puzzle 子品类，并给出“fast readability / satisfying interaction / clean decision loop”的机制判断，游戏设计对象与作用方式都较明确。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/Pixel Flow - The Publisher's Dream|Pixel Flow: The Publisher's Dream]] | 混合但信息不足 | 页面对象是游戏，但保留内容几乎都在讲开发速度与营收爬升，“how it got there”没有落到可复述的具体系统设计。 | 保留网页卡，暂不推进聚类。 |
-| [[30_网页卡/Sort Puzzles - How a New Subgenre is Born|Sort Puzzles: How a New Subgenre is Born]] | 通过筛查 | 正文直接讨论 Sort Puzzle 子品类的机制承诺与演化路径，并保留了从 Water Sort 到 Hybridcasual Puzzle 的设计转向线索。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/The Post-Block Blast Playbook|The Post-Block Blast Playbook]] | 混合但信息不足 | 页面与 Block Puzzle 设计有关，但当前保留内容只说“small but meaningful twists”，没有留下具体变体、Meta 或活动设计证据。 | 保留网页卡，暂不推进聚类。 |
-| [[30_网页卡/What Happened to Coin Master After Monopoly Go! and What Happens Next|What Happened to Coin Master After Monopoly Go! and What Happens Next]] | 通过筛查 | 正文明确点出 coin looter 方向的循环构成，保留了“idle + gacha + PvP sabotage”如何形成高黏性循环的描述。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/What I Took from Games to Build Better Consumer Apps|What I Took from Games to Build Better Consumer Apps]] | 非游戏设计相关资源 | 页面主题是把游戏经验迁移到 consumer apps，当前内容也围绕 Reddit、Duolingo 等非游戏产品，不是游戏产品或游戏系统本身。 | 移出主队列；登记到下方归档。 |
-| [[30_网页卡/Squad Busters 2.0 and Supercell's YOLO Strategy|Squad Busters 2.0 and Supercell's YOLO Strategy]] | 混合但信息不足 | 虽提到“从 casual chaos 转向 midcore strategy”，但保留内容主要是公司重启评论，没有留下足够的系统改动证据。 | 保留网页卡，暂不推进聚类。 |
-| [[30_网页卡/Duolingo - How the $15B App uses Gaming Principles to Supercharge DAU Growth|Duolingo: How the $15B App uses Gaming Principles to Supercharge DAU Growth]] | 非游戏设计相关资源 | 正文主体是教育 app 的增长与日习惯产品逻辑，现有证据也围绕 MAU、留存与 gap time，不是游戏设计对象。 | 移出主队列；登记到下方归档。 |
-| [[30_网页卡/The Magic Behind Magicabin’s ARPDAU|The Magic Behind Magicabin’s ARPDAU]] | 混合但信息不足 | 页面聚焦游戏案例，但当前沉淀主要是 ARPDAU 表现、题材设定与市场兴趣，没有留下“为何这些设计提高 ARPDAU”的机制证据。 | 保留网页卡，暂不推进聚类。 |
-| [[30_网页卡/How Drama and Fake Ads Convert To Real Profits|How Drama and Fake Ads Convert To Real Profits]] | 非游戏设计相关资源 | 当前内容重心在戏剧化叙事与 fake ads 的获量/包装问题，且保留证据只有作者介绍，无法稳定回到游戏内设计模式。 | 移出主队列；登记到下方归档。 |
-| [[30_网页卡/Why Some Puzzle Games are More Addicting Than Others -|Why Some Puzzle Games are More Addicting Than Others?]] | 通过筛查 | 正文保留了 Hybridcasual Puzzle 的核心判断，明确提到“refining core mechanics”与“simplifying interaction and progression”的设计方向。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/Telegram x Web3 Gaming - Why So Popular and How Can I Get In On This -|Telegram x Web3 Gaming: Why So Popular and How Can I Get In On This?]] | 非游戏设计相关资源 | 页面主体是 Telegram/Web3 平台机会与商业进入方式，现有内容集中在平台规模、营收与“如何入场”，不属于游戏设计模式层。 | 移出主队列；登记到下方归档。 |
-| [[30_网页卡/The Sweet Art of Feature Adaptation|The Sweet Art of Feature Adaptation]] | 通过筛查 | 正文直接讨论 feature adaptation 方法，保留了“不能直接抄，必须贴合自身系统、玩家与产品身份”的设计判断。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars|4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars]] | 混合但信息不足 | 页面在讨论游戏案例，但当前保留内容主要是 go-to-market 风险与公司判断，缺少可回用的玩法或系统层证据。 | 保留网页卡，暂不推进聚类。 |
-| [[30_网页卡/Daily Missions in Puzzles - Why should we see them more often -|Daily Missions in Puzzles: Why should we see them more often?]] | 通过筛查 | 正文明确指向 daily missions 这个设计对象，并解释它为何作为 appointment mechanic 促进长期留存。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/Time Blast - Will it revive the Rest of the Genre -|Time Blast: Will it revive the Rest of the Genre?]] | 通过筛查 | 当前内容至少保留了“Blast + Match-3 机制混搭”与“上线即带完整活动节奏”两条设计线索，相关性与信息量达标。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/Finding Genre Success - the Case of Gossip Harbor|Finding Genre Success: the Case of Gossip Harbor]] | 混合但信息不足 | 页面对象是游戏，但沉淀内容主要是收入曲线、广告占比与公司背景，没有留下足够的 Merge-2 设计证据。 | 保留网页卡，暂不推进聚类。 |
-| [[30_网页卡/Win Streak - the Gift That Keeps on Giving|Win Streak: the Gift That Keeps on Giving]] | 通过筛查 | 正文明确讨论 win streak 奖励结构，说明它如何同时强化玩家动机与 End Game Offer 转化。 | 保留为后续跨卡复核候选。 |
-| [[30_网页卡/Squad Busters One Month Later - Down, But Not Out|Squad Busters One Month Later: Down, But Not Out]] | 混合但信息不足 | 页面与游戏发行复盘有关，但当前网页卡只保留了“launch failed”与无关致谢/播客信息，没有设计证据可沉淀。 | 保留网页卡，暂不推进聚类。 |
+### 通过筛查
+- [[30_网页卡/The Screw Puzzle Gold Rush|The Screw Puzzle Gold Rush]]：决策为“通过筛查”。证据化理由：正文明确指向 Screw Puzzle 子品类，并给出“fast readability / satisfying interaction / clean decision loop”的机制判断，游戏设计对象与作用方式都较明确。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/Sort Puzzles - How a New Subgenre is Born|Sort Puzzles: How a New Subgenre is Born]]：决策为“通过筛查”。证据化理由：正文直接讨论 Sort Puzzle 子品类的机制承诺与演化路径，并保留了从 Water Sort 到 Hybridcasual Puzzle 的设计转向线索。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/What Happened to Coin Master After Monopoly Go! and What Happens Next|What Happened to Coin Master After Monopoly Go! and What Happens Next]]：决策为“通过筛查”。证据化理由：正文明确点出 coin looter 方向的循环构成，保留了“idle + gacha + PvP sabotage”如何形成高黏性循环的描述。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/Why Some Puzzle Games are More Addicting Than Others -|Why Some Puzzle Games are More Addicting Than Others?]]：决策为“通过筛查”。证据化理由：正文保留了 Hybridcasual Puzzle 的核心判断，明确提到“refining core mechanics”与“simplifying interaction and progression”的设计方向。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/The Sweet Art of Feature Adaptation|The Sweet Art of Feature Adaptation]]：决策为“通过筛查”。证据化理由：正文直接讨论 feature adaptation 方法，保留了“不能直接抄，必须贴合自身系统、玩家与产品身份”的设计判断。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/Daily Missions in Puzzles - Why should we see them more often -|Daily Missions in Puzzles: Why should we see them more often?]]：决策为“通过筛查”。证据化理由：正文明确指向 daily missions 这个设计对象，并解释它为何作为 appointment mechanic 促进长期留存。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/Time Blast - Will it revive the Rest of the Genre -|Time Blast: Will it revive the Rest of the Genre?]]：决策为“通过筛查”。证据化理由：当前内容至少保留了“Blast + Match-3 机制混搭”与“上线即带完整活动节奏”两条设计线索，相关性与信息量达标。筛后动作：保留为后续跨卡复核候选。
+- [[30_网页卡/Win Streak - the Gift That Keeps on Giving|Win Streak: the Gift That Keeps on Giving]]：决策为“通过筛查”。证据化理由：正文明确讨论 win streak 奖励结构，说明它如何同时强化玩家动机与 End Game Offer 转化。筛后动作：保留为后续跨卡复核候选。
+
+### 混合但信息不足
+- [[30_网页卡/Pixel Flow - The Publisher's Dream|Pixel Flow: The Publisher's Dream]]：决策为“混合但信息不足”。证据化理由：页面对象是游戏，但保留内容几乎都在讲开发速度与营收爬升，“how it got there”没有落到可复述的具体系统设计。筛后动作：保留网页卡，暂不推进聚类。
+- [[30_网页卡/The Post-Block Blast Playbook|The Post-Block Blast Playbook]]：决策为“混合但信息不足”。证据化理由：页面与 Block Puzzle 设计有关，但当前保留内容只说“small but meaningful twists”，没有留下具体变体、Meta 或活动设计证据。筛后动作：保留网页卡，暂不推进聚类。
+- [[30_网页卡/Squad Busters 2.0 and Supercell's YOLO Strategy|Squad Busters 2.0 and Supercell's YOLO Strategy]]：决策为“混合但信息不足”。证据化理由：虽提到“从 casual chaos 转向 midcore strategy”，但保留内容主要是公司重启评论，没有留下足够的系统改动证据。筛后动作：保留网页卡，暂不推进聚类。
+- [[30_网页卡/The Magic Behind Magicabin’s ARPDAU|The Magic Behind Magicabin’s ARPDAU]]：决策为“混合但信息不足”。证据化理由：页面聚焦游戏案例，但当前沉淀主要是 ARPDAU 表现、题材设定与市场兴趣，没有留下“为何这些设计提高 ARPDAU”的机制证据。筛后动作：保留网页卡，暂不推进聚类。
+- [[30_网页卡/4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars|4 x Reasons Why Squad Busters Suffers While Brawl Stars Soars]]：决策为“混合但信息不足”。证据化理由：页面在讨论游戏案例，但当前保留内容主要是 go-to-market 风险与公司判断，缺少可回用的玩法或系统层证据。筛后动作：保留网页卡，暂不推进聚类。
+- [[30_网页卡/Finding Genre Success - the Case of Gossip Harbor|Finding Genre Success: the Case of Gossip Harbor]]：决策为“混合但信息不足”。证据化理由：页面对象是游戏，但沉淀内容主要是收入曲线、广告占比与公司背景，没有留下足够的 Merge-2 设计证据。筛后动作：保留网页卡，暂不推进聚类。
+- [[30_网页卡/Squad Busters One Month Later - Down, But Not Out|Squad Busters One Month Later: Down, But Not Out]]：决策为“混合但信息不足”。证据化理由：页面与游戏发行复盘有关，但当前网页卡只保留了“launch failed”与无关致谢/播客信息，没有设计证据可沉淀。筛后动作：保留网页卡，暂不推进聚类。
+
+### 非游戏设计相关资源
+- [[30_网页卡/Hay Day With a To-Do List - How Focus Friend Cracked Productivity Retention|Hay Day With a To-Do List: How Focus Friend Cracked Productivity Retention]]：决策为“非游戏设计相关资源”。证据化理由：正文主体是生产力 app 复盘，现有内容只保留“把 progression 做成产品核心”的泛化说法，没有稳定回到游戏系统或机制证据。筛后动作：移出主队列；登记到下方归档。
+- [[30_网页卡/What I Took from Games to Build Better Consumer Apps|What I Took from Games to Build Better Consumer Apps]]：决策为“非游戏设计相关资源”。证据化理由：页面主题是把游戏经验迁移到 consumer apps，当前内容也围绕 Reddit、Duolingo 等非游戏产品，不是游戏产品或游戏系统本身。筛后动作：移出主队列；登记到下方归档。
+- [[30_网页卡/Duolingo - How the $15B App uses Gaming Principles to Supercharge DAU Growth|Duolingo: How the $15B App uses Gaming Principles to Supercharge DAU Growth]]：决策为“非游戏设计相关资源”。证据化理由：正文主体是教育 app 的增长与日习惯产品逻辑，现有证据也围绕 MAU、留存与 gap time，不是游戏设计对象。筛后动作：移出主队列；登记到下方归档。
+- [[30_网页卡/How Drama and Fake Ads Convert To Real Profits|How Drama and Fake Ads Convert To Real Profits]]：决策为“非游戏设计相关资源”。证据化理由：当前内容重心在戏剧化叙事与 fake ads 的获量/包装问题，且保留证据只有作者介绍，无法稳定回到游戏内设计模式。筛后动作：移出主队列；登记到下方归档。
+- [[30_网页卡/Telegram x Web3 Gaming - Why So Popular and How Can I Get In On This -|Telegram x Web3 Gaming: Why So Popular and How Can I Get In On This?]]：决策为“非游戏设计相关资源”。证据化理由：页面主体是 Telegram/Web3 平台机会与商业进入方式，现有内容集中在平台规模、营收与“如何入场”，不属于游戏设计模式层。筛后动作：移出主队列；登记到下方归档。
 
 ## 非相关资源归档
 - [[30_网页卡/Hay Day With a To-Do List - How Focus Friend Cracked Productivity Retention|Hay Day With a To-Do List: How Focus Friend Cracked Productivity Retention]]
@@ -89,5 +92,6 @@ tags: [game-design, topic-index, deconstructoroffun]
 ## 后续动作
 - 本轮 20/20 已完成逐卡筛查：通过筛查 8 篇；混合但信息不足 7 篇；非游戏设计相关资源 5 篇。
 - 只有“通过筛查”的 8 篇网页卡继续保留为后续跨卡复核候选；本轮仍不新建 `40_设计模式/` 卡片。
+- 已新增 [[50_专题索引/Deconstructor of Fun - 第二批通过条目候选模式分析|Deconstructor of Fun - 第二批通过条目候选模式分析]]，仅基于这 8 篇通过条目的现有网页卡内容做暂定交叉分析。
 - “混合但信息不足”的 7 篇网页卡暂不推进，后续只在补到更扎实的正文证据或跨来源证据后再复查。
 - “非游戏设计相关资源”的 5 篇网页卡已从本轮主队列移出，但原网页卡仍保留为来源证据，不做删除性处理。
