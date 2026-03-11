@@ -1,74 +1,48 @@
 # Game Design Patterns
 
-这是一个面向 Agent 的游戏设计资料库仓库，目标是把任意网页中的游戏机制、内容设计模式与成功案例，沉淀成可被 Obsidian 直接打开与检索的 Markdown 页面。
-
-当前仓库仍处于第一阶段，后续会补充：
-
-- 单 URL 导入流程
-- 入口页候选链接抽取
-- 网页卡片与设计模式卡片模板
-- 基于 `Deconstructor of Fun` 的首批样例
+这是一个面向 Agent 的游戏设计资料库仓库，目标是把单游戏网页材料沉淀到可被 Obsidian 直接打开与检索的游戏主卡。
 
 ## 仓库定位
 
 这个仓库同时承担两种角色：
 
-- 作为 Obsidian 可直接打开的知识库，保存来源页、入口页、网页卡和设计模式卡
-- 作为最小 Python 工具仓库，提供 URL 导入与卡片生成能力
+- 作为 Obsidian 可直接打开的知识库，保存按游戏组织的固定结构主卡
+- 作为最小 Python 工具仓库，提供 URL 导入与结构化落库能力
 
-## 第一阶段支持范围
+## 当前主线
 
-优先支持：
+当前采用“单游戏深入分析优先”的路线：
 
-- 标准博客文章页
-- 官方文档页
-- GitHub README
-- 分类页、导航页、`awesome-xxx` 汇总页
-
-当前不处理：
-
-- 视频页
-- 社媒长帖
-- 登录墙页面
-- 重度依赖 JavaScript 才能读正文的页面
+- 新输入默认是“某个游戏的分析材料”，不是独立沉淀中心
+- 主实体是游戏主卡，而不是来源页、入口页、网页卡池
+- 自动化扩源、入口页采集、批量递归抓取不再是当前主线
 
 ## 目录概览
 
-- `10_来源/`：来源站点说明
-- `20_入口页/`：栏目页、导航页、`awesome-xxx` 等入口页面
-- `30_网页卡/`：单篇网页沉淀
-- `40_设计模式/`：核心机制 / 模式卡片
-- `50_专题索引/`：人工整理的导航页
-- `90_模板与规范/`：模板与命名规范
+- `10_游戏主卡/`：每个游戏一个目录，固定五页骨架
+- `50_专题索引/`：人工维护的跨游戏或单游戏专题导航
+- `90_模板与规范/`：模板、结构规范与仓库规则
 - `tools/`：最小必要工具
 - `src/`：Python 实现
 - `tests/`：自动化测试
 
-## 当前工作流
+## 游戏主卡固定五页
 
-第一阶段只围绕一个核心动作：`导入一个 URL`。
+每个游戏目录固定包含：
 
-- 如果 URL 指向文章页，则先生成网页卡片，再按正文证据判断是否有资格进入模式整理
-- 如果 URL 指向入口页，则生成入口页卡，并抽取后续待处理链接
-- 查询层默认依赖 Obsidian 与文本搜索，不额外维护数据库
+- `入口页`
+- `核心体验`
+- `设计模式`
+- `游戏内容`
+- `证据索引`
 
-补充约束：
+路由原则：
 
-- 本仓库只关心游戏设计模式，不会把所有导入页面都强行推进到模式聚类。
-- 单篇网页如果达不到有意义的游戏设计相关性与信息量门槛，应停留在网页卡或进入归档，不产出模式结论。
-
-## Deconstructor 第二批说明
-
-- `Deconstructor of Fun` 当前第二批不再采用“先按标题聚类”的工作法。
-- 正确流程是先逐网页卡筛查，判断其是否通过游戏设计相关性与有效信息门槛。
-- 旧的标题级 cluster guess 只保留为历史暂定线索，不能当作正式模式结论。
-- 当前评审入口见 `50_专题索引/Deconstructor of Fun - 第二批逐卡筛查.md`
-
-## 如何在 Obsidian 中使用
-
-1. 在 Obsidian 中选择“Open folder as vault”
-2. 打开 `~/projects/game-design-patterns/`
-3. 优先从 `10_来源/`、`20_入口页/` 和 `40_设计模式/` 开始浏览
+- `入口页` 只导航
+- `核心体验` 是主分析页
+- `设计模式` 承接可迁移判断
+- `游戏内容` 承接内容组织、分层和扩展
+- `证据索引` 维护来源可靠性与“证据 -> 结论”映射
 
 ## 导入命令
 
@@ -78,25 +52,26 @@
 uv sync
 ```
 
-导入入口页：
+导入单游戏页面（必须指定游戏名）：
 
 ```bash
-uv run python tools/import_url.py 'https://www.deconstructoroffun.com/blog?category=Deconstructions'
+uv run python tools/import_url.py 'https://example.com/article' --game 'Clash Royale'
 ```
 
-导入单篇文章：
+导入后会：
 
-```bash
-uv run python tools/import_url.py 'https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation'
-```
+- 自动创建该游戏目录及五页（若不存在）
+- 将 URL 记录到 `证据索引`
+- 在 `入口页` 记录最近新增输入材料
+- 在 `核心体验` 增加“待吸收输入”占位
 
-## 当前样例
+## 如何在 Obsidian 中使用
 
-- 来源页：`10_来源/Deconstructor of Fun.md`
-- 入口页：`20_入口页/Deconstructor of Fun - Deconstructions.md`
-- 网页卡：`30_网页卡/The Sweet Art of Feature Adaptation.md`
-- 模式卡：`40_设计模式/Feature Adaptation.md`
-- 第二批逐卡筛查说明：`50_专题索引/Deconstructor of Fun - 第二批逐卡筛查.md`
-- 第二来源页：`10_来源/Game Design Skills.md`
-- 第二来源网页卡：`30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide.md`
-- 第二来源模式卡：`40_设计模式/Core Gameplay Loop.md`
+1. 在 Obsidian 中选择“Open folder as vault”
+2. 打开 `~/projects/game-design-patterns/`
+3. 从 `10_游戏主卡/` 进入任意游戏目录，按五页结构阅读
+
+## 模板与规范入口
+
+- `90_模板与规范/README.md`
+- `90_模板与规范/游戏主卡结构规范.md`
