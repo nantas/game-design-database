@@ -22,11 +22,15 @@ trap cleanup EXIT INT TERM
 
 branch_name="$(git branch --show-current)"
 commit_sha="$(git rev-parse HEAD)"
+base_commit_sha="$commit_sha"
 
 if [ "$prompt_input" = "test prompt" ]; then
   codex_prompt="先阅读 AGENTS.md。不要修改任何文件，不要提交，只输出一句简短中文总结说明仓库已检查完毕。"
 else
   codex_prompt="先阅读仓库根目录的 AGENTS.md 并严格遵守。请在当前工作区内完成以下任务，只做最小必要改动，运行必要验证，并在完成后提交改动：\n\n$prompt_input"
+
+  branch_name="feat/symphony-$(date +%Y%m%d%H%M%S)"
+  git checkout -b "$branch_name" >/dev/null 2>&1
 fi
 
 if ! uv sync >"$tmpdir/uv-sync.log" 2>&1; then
@@ -49,7 +53,25 @@ if ! uv run pytest tests -q >"$test_log" 2>&1; then
   exit 0
 fi
 
+if [ "$prompt_input" != "test prompt" ]; then
+  if ! git diff --cached --quiet || ! git diff --quiet; then
+    git add -A
+    git commit -m "feat: implement issue" >/dev/null 2>&1
+  fi
+
+  current_branch="$(git branch --show-current)"
+  if [ "$current_branch" = "main" ]; then
+    git branch -f "$branch_name" HEAD >/dev/null 2>&1
+    git checkout "$branch_name" >/dev/null 2>&1
+  fi
+fi
+
 branch_name="$(git branch --show-current)"
 commit_sha="$(git rev-parse HEAD)"
+
+if [ "$prompt_input" != "test prompt" ] && [ "$commit_sha" = "$base_commit_sha" ]; then
+  printf '{"status":"failed","summary":"no_changes","branch_name":"%s","commit_sha":"%s","requested_next_action":"inspect_codex_output"}\n' "$branch_name" "$commit_sha"
+  exit 0
+fi
 
 printf '{"status":"success","summary":"implemented","branch_name":"%s","commit_sha":"%s","requested_next_action":null}\n' "$branch_name" "$commit_sha"

@@ -9,6 +9,7 @@ hooks:
     - uv sync
   after_run:
     - uv run pytest tests -q
+  before_remove: []
 retry_policy:
   max_attempts: 3
   backoff_seconds: 60
