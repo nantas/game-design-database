@@ -6,97 +6,70 @@ from game_design_patterns.importer import import_url
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
 
-def test_import_entry_page_writes_markdown_file(tmp_path: Path) -> None:
-    created = import_url(
-        "https://www.deconstructoroffun.com/blog?category=Deconstructions",
-        vault_root=tmp_path,
-        html=(
-            FIXTURES_DIR / "deconstructor_category.html"
-        ).read_text(encoding="utf-8"),
-        imported_at="2026-03-08",
-    )
-
-    entry_note = tmp_path / "20_入口页" / "Deconstructor of Fun - Deconstructions.md"
-
-    assert entry_note in created
-    assert entry_note.exists()
-    content = entry_note.read_text(encoding="utf-8")
-    assert "type: entry_page" in content
-    assert "## 候选链接" in content
-
-
-def test_import_github_awesome_page_writes_entry_markdown_file(tmp_path: Path) -> None:
-    created = import_url(
-        "https://github.com/Calinou/awesome-gamedev",
-        vault_root=tmp_path,
-        html=(FIXTURES_DIR / "github_awesome_gamedev.html").read_text(
-            encoding="utf-8"
-        ),
-        imported_at="2026-03-08",
-    )
-
-    entry_note = tmp_path / "20_入口页" / "GitHub - Calinou - awesome-gamedev.md"
-
-    assert entry_note in created
-    assert entry_note.exists()
-    content = entry_note.read_text(encoding="utf-8")
-    assert "type: entry_page" in content
-    assert 'source: GitHub' in content
-    assert "Bosca Ceoil Blue - https://github.com/YuriSizov/boscaceoil-blue" in content
-    assert "https://opensource.org/license/MIT" not in content
-
-
-def test_import_article_writes_web_note_and_pattern_note(tmp_path: Path) -> None:
+def test_import_article_writes_five_game_master_pages(tmp_path: Path) -> None:
     created = import_url(
         "https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation",
         vault_root=tmp_path,
+        game="Clash Royale",
         html=(FIXTURES_DIR / "deconstructor_article.html").read_text(encoding="utf-8"),
-        imported_at="2026-03-08",
+        imported_at="2026-03-11",
     )
 
-    web_note = tmp_path / "30_网页卡" / "The Sweet Art of Feature Adaptation.md"
-    pattern_note = tmp_path / "40_设计模式" / "Feature Adaptation.md"
+    game_dir = tmp_path / "10_游戏主卡" / "Clash Royale"
+    entry_page = game_dir / "Clash Royale.md"
+    core_page = game_dir / "Clash Royale - 核心体验.md"
+    patterns_page = game_dir / "Clash Royale - 设计模式.md"
+    content_page = game_dir / "Clash Royale - 游戏内容.md"
+    evidence_page = game_dir / "Clash Royale - 证据索引.md"
 
-    assert web_note in created
-    assert pattern_note in created
-    assert web_note.exists()
-    assert pattern_note.exists()
-    assert "[[40_设计模式/Feature Adaptation|Feature Adaptation]]" in web_note.read_text(
-        encoding="utf-8"
-    )
-    assert "[[30_网页卡/The Sweet Art of Feature Adaptation|The Sweet Art of Feature Adaptation]]" in pattern_note.read_text(
-        encoding="utf-8"
-    )
+    assert entry_page in created
+    assert core_page in created
+    assert patterns_page in created
+    assert content_page in created
+    assert evidence_page in created
 
-
-def test_import_article_supports_game_design_skills_fixture(tmp_path: Path) -> None:
-    created = import_url(
-        "https://gamedesignskills.com/game-design/core-loops-in-gameplay/",
-        vault_root=tmp_path,
-        html=(
-            FIXTURES_DIR / "game_design_skills_core_loop.html"
-        ).read_text(encoding="utf-8"),
-        imported_at="2026-03-08",
-    )
-
-    web_note = (
-        tmp_path / "30_网页卡" / "Designing The Core Gameplay Loop - A Beginner’s Guide.md"
-    )
-    pattern_note = (
-        tmp_path / "40_设计模式" / "Designing The Core Gameplay Loop - A Beginner’s Guide.md"
-    )
-
-    assert web_note in created
-    assert pattern_note in created
-
-    content = web_note.read_text(encoding="utf-8")
-    assert 'author: "Alexander Brazie"' in content
-    assert "published_at: 2023-10-06" in content
-    assert "In game design" in content
-    assert "[[10_来源/Game Design Skills|Game Design Skills]]" in content
-
-    pattern_content = pattern_note.read_text(encoding="utf-8")
+    entry_text = entry_page.read_text(encoding="utf-8")
+    assert "type: game_master_index" in entry_text
     assert (
-        "[[30_网页卡/Designing The Core Gameplay Loop - A Beginner’s Guide|"
-        "Designing The Core Gameplay Loop: A Beginner’s Guide]]"
-    ) in pattern_content
+        "2026-03-11 - [The Sweet Art of Feature Adaptation](https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation)"
+        in entry_text
+    )
+
+    core_text = core_page.read_text(encoding="utf-8")
+    assert "## 新输入待吸收" in core_text
+    assert "[[10_游戏主卡/Clash Royale/Clash Royale - 证据索引|Clash Royale - 证据索引]]" in core_text
+
+    patterns_text = patterns_page.read_text(encoding="utf-8")
+    assert "## 待验证模式线索" in patterns_text
+    assert "Feature Adaptation" in patterns_text
+
+    evidence_text = evidence_page.read_text(encoding="utf-8")
+    assert "type: game_evidence_index" in evidence_text
+    assert "The Sweet Art of Feature Adaptation" in evidence_text
+    assert "来源：Deconstructor of Fun" in evidence_text
+
+
+def test_import_article_does_not_duplicate_same_input(tmp_path: Path) -> None:
+    kwargs = {
+        "url": "https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation",
+        "vault_root": tmp_path,
+        "game": "Clash Royale",
+        "html": (FIXTURES_DIR / "deconstructor_article.html").read_text(encoding="utf-8"),
+        "imported_at": "2026-03-11",
+    }
+    first = import_url(**kwargs)
+    second = import_url(**kwargs)
+
+    assert first
+    assert second == []
+
+    evidence_page = (
+        tmp_path / "10_游戏主卡" / "Clash Royale" / "Clash Royale - 证据索引.md"
+    )
+    evidence_text = evidence_page.read_text(encoding="utf-8")
+    assert (
+        evidence_text.count(
+            "https://www.deconstructoroffun.com/blog/2024/11/11/the-art-of-feature-adaptation"
+        )
+        == 1
+    )

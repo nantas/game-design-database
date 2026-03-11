@@ -5,19 +5,22 @@ from datetime import date
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-from game_design_patterns.html_extract import extract_article, extract_entry_page
+from game_design_patterns.html_extract import extract_article
 from game_design_patterns.markdown import (
-    render_entry_page_note,
-    render_pattern_note,
-    render_web_note,
+    render_game_content_note,
+    render_game_core_experience_note,
+    render_game_design_patterns_note,
+    render_game_entry_note,
+    render_game_evidence_index_note,
+    upsert_bullet_in_section,
 )
-from game_design_patterns.models import EntryPageNote, PatternNote, WebNote
 from game_design_patterns.paths import (
-    classify_page_type,
-    entry_page_path,
+    game_content_path,
+    game_core_experience_path,
+    game_design_patterns_path,
+    game_entry_note_path,
+    game_evidence_index_path,
     note_link,
-    pattern_note_path,
-    web_note_path,
 )
 
 
@@ -39,23 +42,82 @@ def fetch_html(url: str) -> str:
 def import_url(
     url: str,
     vault_root: Path,
+    game: str,
     html: str | None = None,
     imported_at: str | None = None,
 ) -> list[Path]:
     imported_at = imported_at or date.today().isoformat()
     _ensure_content_directories(vault_root)
-    page_type = classify_page_type(url)
     html_content = html or fetch_html(url)
+    extracted = extract_article(html_content, url)
 
-    if page_type.value == "entry_page":
-        return _import_entry_page(url, vault_root, html_content)
+    touched_paths: list[Path] = []
 
-    return _import_article(url, vault_root, html_content, imported_at)
+    def track(path: Path) -> None:
+        if path not in touched_paths:
+            touched_paths.append(path)
+
+    for created in _ensure_game_pages(vault_root, game):
+        track(created)
+
+    evidence_link = note_link(game_evidence_index_path(game), f"{game} - 证据索引")
+
+    updates: list[tuple[Path, str, str]] = [
+        (
+            game_entry_note_path(game),
+            "## 最近新增输入材料",
+            f"{imported_at} - [{extracted.title}]({url})",
+        ),
+        (
+            game_core_experience_path(game),
+            "## 新输入待吸收",
+            (
+                f"{imported_at}：已登记《{extracted.title}》，待判断其对核心体验/决策/反馈循环"
+                f"的贡献。证据见 {evidence_link}。"
+            ),
+        ),
+        (
+            game_evidence_index_path(game),
+            "## 证据来源清单",
+            (
+                f"[ ] [{extracted.title}]({url})（来源：{extracted.source_name}；"
+                f"作者：{extracted.author or '未知'}；发布时间：{extracted.published_at or '未知'}；"
+                f"导入：{imported_at}）"
+            ),
+        ),
+        (
+            game_evidence_index_path(game),
+            "## 来源可靠性与用途",
+            f"{extracted.source_name}：待评估；用途：用于《{extracted.title}》相关判断。",
+        ),
+        (
+            game_evidence_index_path(game),
+            "## 证据到结论的映射",
+            f"《{extracted.title}》 -> 待映射（核心体验/设计模式/游戏内容）",
+        ),
+    ]
+
+    if extracted.pattern_candidates:
+        updates.append(
+            (
+                game_design_patterns_path(game),
+                "## 待验证模式线索",
+                f"{imported_at}：{extracted.pattern_candidates[0]}（来自《{extracted.title}》）",
+            )
+        )
+
+    for relative_path, section_heading, item in updates:
+        absolute_path = vault_root / relative_path
+        if _upsert_markdown_section_bullet(absolute_path, section_heading, item):
+            track(absolute_path)
+
+    return touched_paths
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="导入游戏设计网页到 Markdown 仓库")
+    parser = argparse.ArgumentParser(description="导入单游戏网页到游戏主卡")
     parser.add_argument("url", help="要导入的网页 URL")
+    parser.add_argument("--game", required=True, help="目标游戏名")
     parser.add_argument(
         "--vault-root",
         default=Path(__file__).resolve().parents[2],
@@ -69,88 +131,48 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    created_files = import_url(
+    touched = import_url(
         args.url,
         vault_root=args.vault_root,
+        game=args.game,
         imported_at=args.imported_at,
     )
-    for file_path in created_files:
+    for file_path in touched:
         print(file_path)
     return 0
 
 
-def _import_entry_page(url: str, vault_root: Path, html: str) -> list[Path]:
-    extracted = extract_entry_page(html, url)
-    note = EntryPageNote(
-        title=extracted.title,
-        source=extracted.source_name,
-        url=url,
-        status="active",
-        summary=extracted.summary,
-        candidates=extracted.candidates,
-        next_steps=["优先挑选一篇代表性文章继续导入。"],
-    )
-    output_path = vault_root / entry_page_path(note.title)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(render_entry_page_note(note), encoding="utf-8")
-    return [output_path]
+def _ensure_game_pages(vault_root: Path, game: str) -> list[Path]:
+    pages: list[tuple[Path, str]] = [
+        (game_entry_note_path(game), render_game_entry_note(game)),
+        (game_core_experience_path(game), render_game_core_experience_note(game)),
+        (game_design_patterns_path(game), render_game_design_patterns_note(game)),
+        (game_content_path(game), render_game_content_note(game)),
+        (game_evidence_index_path(game), render_game_evidence_index_note(game)),
+    ]
+
+    created: list[Path] = []
+    for relative_path, content in pages:
+        absolute_path = vault_root / relative_path
+        if absolute_path.exists():
+            continue
+        absolute_path.parent.mkdir(parents=True, exist_ok=True)
+        absolute_path.write_text(content, encoding="utf-8")
+        created.append(absolute_path)
+    return created
 
 
-def _import_article(
-    url: str,
-    vault_root: Path,
-    html: str,
-    imported_at: str,
-) -> list[Path]:
-    extracted = extract_article(html, url)
-    pattern_title = extracted.pattern_candidates[0] if extracted.pattern_candidates else extracted.title
-    pattern_link = note_link(pattern_note_path(pattern_title), pattern_title)
-    web_link = note_link(web_note_path(extracted.title), extracted.title)
-
-    web_note = WebNote(
-        title=extracted.title,
-        source=extracted.source_name,
-        url=url,
-        author=extracted.author,
-        published_at=extracted.published_at,
-        imported_at=imported_at,
-        summary=extracted.summary,
-        pattern_links=[pattern_link],
-        evidence=extracted.evidence or extracted.summary,
-        notes=["自动导入生成，建议人工复核模式归并与证据表述。"],
-    )
-    pattern_note = PatternNote(
-        title=pattern_title,
-        aliases=[],
-        domain="待补充",
-        problem_space="待补充",
-        definition=[f"由《{extracted.title}》提炼出的候选设计模式。"],
-        use_cases=["需要围绕现有产品吸收外部成功特征时。"],
-        design_values=extracted.summary[:1],
-        variants=["待补充"],
-        related_cases=[web_link],
-        evidence_sources=[web_link],
-        related_patterns=[],
-    )
-
-    web_note_path_abs = vault_root / web_note_path(web_note.title)
-    pattern_note_path_abs = vault_root / pattern_note_path(pattern_note.title)
-    web_note_path_abs.parent.mkdir(parents=True, exist_ok=True)
-    pattern_note_path_abs.parent.mkdir(parents=True, exist_ok=True)
-    web_note_path_abs.write_text(render_web_note(web_note), encoding="utf-8")
-    pattern_note_path_abs.write_text(
-        render_pattern_note(pattern_note),
-        encoding="utf-8",
-    )
-    return [web_note_path_abs, pattern_note_path_abs]
+def _upsert_markdown_section_bullet(path: Path, section_heading: str, item: str) -> bool:
+    original = path.read_text(encoding="utf-8")
+    updated, changed = upsert_bullet_in_section(original, section_heading, item)
+    if changed:
+        path.write_text(updated, encoding="utf-8")
+    return changed
 
 
 def _ensure_content_directories(vault_root: Path) -> None:
     for directory in [
-        "10_来源",
-        "20_入口页",
-        "30_网页卡",
-        "40_设计模式",
+        "10_游戏主卡",
         "50_专题索引",
         "90_模板与规范",
     ]:

@@ -1,8 +1,14 @@
 from collections.abc import Iterable
 import re
 
-from game_design_patterns.models import EntryPageNote, PatternNote, WebNote
-from game_design_patterns.paths import note_link, source_note_path
+from game_design_patterns.paths import (
+    game_content_path,
+    game_core_experience_path,
+    game_design_patterns_path,
+    game_entry_note_path,
+    game_evidence_index_path,
+    note_link,
+)
 
 
 def _quote(value: str) -> str:
@@ -20,7 +26,7 @@ def _format_list(values: list[str]) -> str:
     return "[" + ", ".join(_quote(value) for value in values) + "]"
 
 
-def _frontmatter(properties: dict[str, str | list[str]]) -> str:
+def frontmatter(properties: dict[str, str | list[str]]) -> str:
     lines = ["---"]
 
     for key, value in properties.items():
@@ -40,112 +46,196 @@ def _bullet_lines(items: Iterable[str]) -> list[str]:
     return [f"- {item}" for item in values]
 
 
-def render_web_note(note: WebNote) -> str:
-    source_link = note_link(source_note_path(note.source), note.source)
-    frontmatter = _frontmatter(
+def render_game_entry_note(game: str) -> str:
+    front = frontmatter(
         {
-            "title": note.title,
-            "type": "web_note",
-            "source": note.source,
-            "url": note.url,
-            "author": note.author,
-            "published_at": note.published_at,
-            "imported_at": note.imported_at,
-            "tags": note.tags,
+            "title": game,
+            "type": "game_master_index",
+            "game": game,
+            "tags": ["game-design", "game-master-card"],
         }
     )
-
     sections = [
-        frontmatter,
+        front,
         "",
-        f"# {note.title}",
+        f"# {game}",
         "",
-        "## 内容摘要",
-        *_bullet_lines(note.summary),
+        "## 定位",
+        "- 这张主卡聚焦该游戏的核心体验、设计判断与内容组织。",
         "",
-        "## 来源关联",
-        *_bullet_lines([source_link]),
+        "## 推荐阅读顺序",
+        f"- {note_link(game_core_experience_path(game), '核心体验')}",
+        f"- {note_link(game_design_patterns_path(game), '设计模式')}",
+        f"- {note_link(game_content_path(game), '游戏内容')}",
+        f"- {note_link(game_evidence_index_path(game), '证据索引')}",
         "",
-        "## 提炼出的设计模式",
-        *_bullet_lines(note.pattern_links),
+        "## 当前分析焦点",
+        "- ",
         "",
-        "## 关键证据",
-        *_bullet_lines(note.evidence),
+        "## 固定页导航",
+        f"- {note_link(game_entry_note_path(game), '入口页')}",
+        f"- {note_link(game_core_experience_path(game), '核心体验')}",
+        f"- {note_link(game_design_patterns_path(game), '设计模式')}",
+        f"- {note_link(game_content_path(game), '游戏内容')}",
+        f"- {note_link(game_evidence_index_path(game), '证据索引')}",
         "",
-        "## 我的备注",
-        *_bullet_lines(note.notes),
+        "## 最近新增输入材料",
+        "- ",
     ]
     return "\n".join(sections) + "\n"
 
 
-def render_entry_page_note(note: EntryPageNote) -> str:
-    frontmatter = _frontmatter(
+def render_game_core_experience_note(game: str) -> str:
+    front = frontmatter(
         {
-            "title": note.title,
-            "type": "entry_page",
-            "source": note.source,
-            "url": note.url,
-            "status": note.status,
-            "tags": note.tags,
+            "title": f"{game} - 核心体验",
+            "type": "game_core_experience",
+            "game": game,
+            "tags": ["game-design", "core-experience"],
         }
     )
-    candidate_lines = [
-        f"- [ ] {candidate.title} - {candidate.url}" for candidate in note.candidates
-    ] or ["- [ ] "]
-
     sections = [
-        frontmatter,
+        front,
         "",
-        f"# {note.title}",
+        f"# {game} - 核心体验",
         "",
-        "## 页面摘要",
-        *_bullet_lines(note.summary),
+        "## 这款游戏想让玩家持续获得什么体验",
+        "- ",
         "",
-        "## 候选链接",
-        *candidate_lines,
+        "## 支撑该体验的关键玩家决策",
+        "- ",
         "",
-        "## 后续处理",
-        *_bullet_lines(note.next_steps),
+        "## 支撑该体验的关键反馈循环",
+        "- ",
+        "",
+        "## 当前判断边界",
+        "- 当前哪些判断证据充分，哪些仍待验证。",
+        "",
+        "## 新输入待吸收",
+        "- ",
     ]
     return "\n".join(sections) + "\n"
 
 
-def render_pattern_note(note: PatternNote) -> str:
-    frontmatter = _frontmatter(
+def render_game_design_patterns_note(game: str) -> str:
+    front = frontmatter(
         {
-            "title": note.title,
-            "type": "pattern",
-            "aliases": note.aliases,
-            "domain": note.domain,
-            "problem_space": note.problem_space,
-            "tags": note.tags,
+            "title": f"{game} - 设计模式",
+            "type": "game_design_patterns",
+            "game": game,
+            "tags": ["game-design", "game-patterns"],
         }
     )
-
     sections = [
-        frontmatter,
+        front,
         "",
-        f"# {note.title}",
+        f"# {game} - 设计模式",
         "",
-        "## 定义",
-        *_bullet_lines(note.definition),
+        "## 模式清单",
+        "- ",
         "",
-        "## 适用场景",
-        *_bullet_lines(note.use_cases),
+        "## 每个模式的作用",
+        "- ",
         "",
-        "## 设计价值",
-        *_bullet_lines(note.design_values),
+        "## 触发方式与生效条件",
+        "- ",
         "",
-        "## 常见变体",
-        *_bullet_lines(note.variants),
+        "## 可迁移性判断",
+        "- 哪些结论可跨游戏复用。",
+        "- 哪些结论仍依赖该游戏语境。",
         "",
-        "## 相关案例",
-        *_bullet_lines(note.related_cases),
-        "",
-        "## 证据来源",
-        *_bullet_lines(note.evidence_sources),
-        "",
-        "## 相关模式",
-        *_bullet_lines(note.related_patterns),
+        "## 待验证模式线索",
+        "- ",
     ]
     return "\n".join(sections) + "\n"
+
+
+def render_game_content_note(game: str) -> str:
+    front = frontmatter(
+        {
+            "title": f"{game} - 游戏内容",
+            "type": "game_content_design",
+            "game": game,
+            "tags": ["game-design", "game-content"],
+        }
+    )
+    sections = [
+        front,
+        "",
+        f"# {game} - 游戏内容",
+        "",
+        "## 内容如何服务核心体验",
+        "- ",
+        "",
+        "## 内容池如何组织、分层和控量",
+        "- ",
+        "",
+        "## 内容如何持续扩展而不破坏主体验",
+        "- ",
+        "",
+        "## 当前内容设计缺口",
+        "- ",
+    ]
+    return "\n".join(sections) + "\n"
+
+
+def render_game_evidence_index_note(game: str) -> str:
+    front = frontmatter(
+        {
+            "title": f"{game} - 证据索引",
+            "type": "game_evidence_index",
+            "game": game,
+            "tags": ["game-design", "evidence-index"],
+        }
+    )
+    sections = [
+        front,
+        "",
+        f"# {game} - 证据索引",
+        "",
+        "## 证据来源清单",
+        "- ",
+        "",
+        "## 来源可靠性与用途",
+        "- ",
+        "",
+        "## 证据到结论的映射",
+        "- ",
+        "",
+        "## 证据缺口",
+        "- ",
+    ]
+    return "\n".join(sections) + "\n"
+
+
+def upsert_bullet_in_section(markdown_text: str, section_heading: str, item: str) -> tuple[str, bool]:
+    bullet_line = f"- {item}".rstrip()
+    lines = markdown_text.splitlines()
+
+    if bullet_line in lines:
+        return markdown_text, False
+
+    try:
+        section_start = next(
+            index for index, line in enumerate(lines) if line.strip() == section_heading
+        )
+    except StopIteration as exc:
+        raise ValueError(f"section not found: {section_heading}") from exc
+
+    body_start = section_start + 1
+    while body_start < len(lines) and lines[body_start].strip() == "":
+        body_start += 1
+
+    section_end = body_start
+    while section_end < len(lines) and not lines[section_end].startswith("## "):
+        section_end += 1
+
+    cleaned_body: list[str] = []
+    for body_line in lines[body_start:section_end]:
+        if body_line.strip() == "-":
+            continue
+        cleaned_body.append(body_line)
+
+    updated_lines = lines[:body_start] + cleaned_body + [bullet_line] + lines[section_end:]
+    updated_text = "\n".join(updated_lines).rstrip() + "\n"
+    return updated_text, True
