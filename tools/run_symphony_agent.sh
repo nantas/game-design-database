@@ -74,4 +74,11 @@ if [ "$prompt_input" != "test prompt" ] && [ "$commit_sha" = "$base_commit_sha" 
   exit 0
 fi
 
+if [ "$prompt_input" != "test prompt" ]; then
+  if ! git push -u origin "$branch_name" >"$tmpdir/git-push.log" 2>&1; then
+    printf '{"status":"failed","summary":"push_failed","branch_name":"%s","commit_sha":"%s","requested_next_action":"inspect_push_log"}\n' "$branch_name" "$commit_sha"
+    exit 0
+  fi
+fi
+
 printf '{"status":"success","summary":"implemented","branch_name":"%s","commit_sha":"%s","requested_next_action":null}\n' "$branch_name" "$commit_sha"
