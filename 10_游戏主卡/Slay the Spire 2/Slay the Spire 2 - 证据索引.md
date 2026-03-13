@@ -112,42 +112,45 @@ tags: [game-design, evidence-index]
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|分层循环可学习性模式（母模式）]] 成立，可回链到“高价值决策 + 失败-学习-改进”的核心体验主轴。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中角色/卡牌/敌人/地图节点等条目作为该模式的内容承载实例。
 - 低风险（模式）：
-  - 证据：本地核心体验页对单回合资源范围的定义 + wiki `Keywords` 与 `Draw` 规则页
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|抽牌-能量双预算模式]] 成立；回合预算由抽牌窗口、能量上限与洗牌循环共同决定。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中卡牌层、关键词层与角色起始规则条目。
-  - 证据：本地核心体验页对单回合/单场战斗资源规划的定义 + wiki `Block` 规则页
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|生命-防御双层生存模式]] 成立；`Block` 负责短期缓冲，`HP` 承担长期代价。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中单位层与基础规则条目。
-  - 证据：本地核心体验页对单回合判断的描述 + wiki `Intent` 规则页 + 典型敌人行动 Pattern 页面
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|敌人意图可见威胁遥测模式]] 成立；战斗信息先行公开，使玩家回合变成基于威胁的解题过程。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中敌人条目与战斗信息条目。
-  - 证据：本地核心体验页对抽牌/过牌循环的描述 + wiki `Draw` 规则页 + 可与洗牌交互的条目
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|洗牌循环控制模式]] 成立；洗牌是主要随机性来源，同时也必须为玩家提供对抗随机性的设计空间。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中抽牌、弃牌、回抽与洗牌相关条目。
-  - 证据：本地核心体验页对单回合顺序判断的描述 + wiki `Draw` 手上限规则
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|手牌窗口管理模式]] 成立；手牌数量直接决定策略灵活性、优质卡利用率与组合错位失败率。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中手牌、过牌与窗口相关条目。
-  - 证据：wiki `Strength` / `Dexterity` / `Buffs` / `Debuffs` 规则页 + 本地模板/重定价模式判断
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|状态标量修正模式]] 成立；状态量作为底层修正器持续改变动作收益估值。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中状态词条与单位层条目。
-  - 证据：本地核心体验页对单回合顺序和即时反馈的描述 + 先手战斗流程
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|玩家先手公平性模式]] 成立；固定先手把体验公平性和策略可控性优先交给玩家，而非交给随机先攻判定。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中战斗流程与回合规则条目。
-  - 证据：本地核心体验页对单回合/单场规划的描述 + wiki `Block` 回合结算规则 + 战斗流程中的玩家回合/敌人回合交替
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|生命周期管理模式]] 成立；`End Turn` 及回合阶段共同承担机制结算时点管理，交替结算是该模式的一部分。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中回合阶段、Buff/Debuff 与敌方行动条目。
-  - 证据：IGN 关于 `Regent star`、`Necrobinder Doom` 与新修饰符的描述
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|异质资源轴模式]] 成立，可由角色专属资源与额外节奏资源继续扩产。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Regent`、`Necrobinder` 与修饰符条目。
-  - 证据：Polygon 关于“经典卡牌被重新语境化” + 可组合内容池结构
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|基础强度模板模式]] 成立，当前至少可低风险判断存在一组可被重复引用和比较的效果基线。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中角色、卡牌、遗物的组合骨架。
-  - 证据：Polygon 关于“扭转玩家预期”“重新语境化” + IGN 关于新修饰符的描述
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|特定语境或策略下重定价模式]] 成立，同一效果在不同资源环境下会被显著重估。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中经典卡牌、新卡牌与修饰符条目。
-  - 证据：IGN 关于 `Doom` 双向消耗、新修饰符收益改写 + 核心体验页的单场战斗资源规划
-  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|资源转换模型模式]] 成立，可作为异质资源轴模式下的细化机制方向。
-  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Doom`、修饰符与资源规划条目。
+  - 基础玩法层：
+    - 证据：本地核心体验页对单回合资源范围的定义 + wiki `Keywords` 与 `Draw` 规则页
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|抽牌-能量双预算模式]] 成立；回合预算由抽牌窗口、能量上限与洗牌循环共同决定。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中卡牌层、关键词层与角色起始规则条目。
+    - 证据：本地核心体验页对单回合/单场战斗资源规划的定义 + wiki `Block` 规则页
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|生命-防御双层生存模式]] 成立；`Block` 负责短期缓冲，`HP` 承担长期代价。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中单位层与基础规则条目。
+    - 证据：本地核心体验页对单回合判断的描述 + wiki `Intent` 规则页 + 典型敌人行动 Pattern 页面
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|敌人意图可见威胁遥测模式]] 成立；战斗信息先行公开，使玩家回合变成基于威胁的解题过程。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中敌人条目与战斗信息条目。
+    - 证据：本地核心体验页对抽牌/过牌循环的描述 + wiki `Draw` 规则页 + 可与洗牌交互的条目
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|洗牌循环控制模式]] 成立；洗牌是主要随机性来源，同时也必须为玩家提供对抗随机性的设计空间。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中抽牌、弃牌、回抽与洗牌相关条目。
+    - 证据：本地核心体验页对单回合顺序判断的描述 + wiki `Draw` 手上限规则
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|手牌窗口管理模式]] 成立；手牌数量直接决定策略灵活性、优质卡利用率与组合错位失败率。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中手牌、过牌与窗口相关条目。
+    - 证据：wiki `Strength` / `Dexterity` / `Buffs` / `Debuffs` 规则页 + 本地模板/重定价模式判断
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|状态标量修正模式]] 成立；状态量作为底层修正器持续改变动作收益估值。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中状态词条与单位层条目。
+  - 战斗流程层：
+    - 证据：本地核心体验页对单回合顺序和即时反馈的描述 + 先手战斗流程
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|玩家先手公平性模式]] 成立；固定先手把体验公平性和策略可控性优先交给玩家，而非交给随机先攻判定。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中战斗流程与回合规则条目。
+    - 证据：本地核心体验页对单回合/单场规划的描述 + wiki `Block` 回合结算规则 + 战斗流程中的玩家回合/敌人回合交替
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|生命周期管理模式]] 成立；`End Turn` 及回合阶段共同承担机制结算时点管理，交替结算是该模式的一部分。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中回合阶段、Buff/Debuff 与敌方行动条目。
+  - 资源扩展层：
+    - 证据：IGN 关于 `Regent star`、`Necrobinder Doom` 与新修饰符的描述
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|异质资源轴模式]] 成立，可由角色专属资源与额外节奏资源继续扩产。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Regent`、`Necrobinder` 与修饰符条目。
+    - 证据：Polygon 关于“经典卡牌被重新语境化” + 可组合内容池结构
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|基础强度模板模式]] 成立，当前至少可低风险判断存在一组可被重复引用和比较的效果基线。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中角色、卡牌、遗物的组合骨架。
+    - 证据：Polygon 关于“扭转玩家预期”“重新语境化” + IGN 关于新修饰符的描述
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|特定语境或策略下重定价模式]] 成立，同一效果在不同资源环境下会被显著重估。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中经典卡牌、新卡牌与修饰符条目。
+    - 证据：IGN 关于 `Doom` 双向消耗、新修饰符收益改写 + 核心体验页的单场战斗资源规划
+    - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|资源转换模型模式]] 成立，可作为异质资源轴模式下的细化机制方向。
+    - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Doom`、修饰符与资源规划条目。
 - 低风险（暂不入模式）：
   - 证据：IGN 跨 Act 任务事件描述（单点）+ Wiki 路线结构模块存在
   - -> 结论：路线与跨 Act 长周期决策目前仅作为内容线索保留，暂不升级为独立模式，避免证据偏移。
