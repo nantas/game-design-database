@@ -112,6 +112,15 @@ tags: [game-design, evidence-index]
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|分层循环可学习性模式（母模式）]] 成立，可回链到“高价值决策 + 失败-学习-改进”的核心体验主轴。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中角色/卡牌/敌人/地图节点等条目作为该模式的内容承载实例。
 - 低风险（模式）：
+  - 证据：本地核心体验页对单回合资源范围的定义 + wiki `Keywords` 与 `Draw` 规则页
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|抽牌-能量双预算模式]] 成立；回合预算由抽牌窗口、能量上限与洗牌循环共同决定。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中卡牌层、关键词层与角色起始规则条目。
+  - 证据：本地核心体验页对单回合/单场战斗资源规划的定义 + wiki `Block` 规则页
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|生命-防御双层生存模式]] 成立；`Block` 负责短期缓冲，`HP` 承担长期代价。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中单位层与基础规则条目。
+  - 证据：本地核心体验页对单回合判断的描述 + wiki `Intent` 规则页 + 典型敌人行动 Pattern 页面
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|敌人意图可见威胁遥测模式]] 成立；战斗信息先行公开，使玩家回合变成基于威胁的解题过程。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中敌人条目与战斗信息条目。
   - 证据：IGN 关于 `Regent star`、`Necrobinder Doom` 与新修饰符的描述
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|异质资源轴模式]] 成立，可由角色专属资源与额外节奏资源继续扩产。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Regent`、`Necrobinder` 与修饰符条目。
