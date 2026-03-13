@@ -111,6 +111,19 @@ tags: [game-design, evidence-index]
   - 证据：Steam 商店页 + Polygon 评测 + IGN 评测
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|分层循环可学习性模式（母模式）]] 成立，可回链到“高价值决策 + 失败-学习-改进”的核心体验主轴。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中角色/卡牌/敌人/地图节点等条目作为该模式的内容承载实例。
+- 低风险（模式）：
+  - 证据：IGN 关于 `Regent star`、`Necrobinder Doom` 与新修饰符的描述
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|异质资源轴模式]] 成立，可由角色专属资源与额外节奏资源继续扩产。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Regent`、`Necrobinder` 与修饰符条目。
+  - 证据：Polygon 关于“经典卡牌被重新语境化” + 可组合内容池结构
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|基础强度模板模式]] 成立，当前至少可低风险判断存在一组可被重复引用和比较的效果基线。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中角色、卡牌、遗物的组合骨架。
+  - 证据：Polygon 关于“扭转玩家预期”“重新语境化” + IGN 关于新修饰符的描述
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|特定语境或策略下重定价模式]] 成立，同一效果在不同资源环境下会被显著重估。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中经典卡牌、新卡牌与修饰符条目。
+  - 证据：IGN 关于 `Doom` 双向消耗、新修饰符收益改写 + 核心体验页的单场战斗资源规划
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|资源转换模型模式]] 成立，可作为异质资源轴模式下的细化机制方向。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Doom`、修饰符与资源规划条目。
 - 低风险（暂不入模式）：
   - 证据：IGN 跨 Act 任务事件描述（单点）+ Wiki 路线结构模块存在
   - -> 结论：路线与跨 Act 长周期决策目前仅作为内容线索保留，暂不升级为独立模式，避免证据偏移。
