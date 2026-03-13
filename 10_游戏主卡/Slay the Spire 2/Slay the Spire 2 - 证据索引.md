@@ -121,6 +121,15 @@ tags: [game-design, evidence-index]
   - 证据：本地核心体验页对单回合判断的描述 + wiki `Intent` 规则页 + 典型敌人行动 Pattern 页面
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|敌人意图可见威胁遥测模式]] 成立；战斗信息先行公开，使玩家回合变成基于威胁的解题过程。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中敌人条目与战斗信息条目。
+  - 证据：本地核心体验页对抽牌/过牌循环的描述 + wiki `Draw` 规则页 + 可与洗牌交互的条目
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|洗牌循环控制模式]] 成立；洗牌是主要随机性来源，同时也必须为玩家提供对抗随机性的设计空间。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中抽牌、弃牌、回抽与洗牌相关条目。
+  - 证据：本地核心体验页对单回合顺序判断的描述 + wiki `Draw` 手上限规则
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|手牌窗口管理模式]] 成立；手牌数量直接决定策略灵活性、优质卡利用率与组合错位失败率。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中手牌、过牌与窗口相关条目。
+  - 证据：wiki `Strength` / `Dexterity` / `Buffs` / `Debuffs` 规则页 + 本地模板/重定价模式判断
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|状态标量修正模式]] 成立；状态量作为底层修正器持续改变动作收益估值。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中状态词条与单位层条目。
   - 证据：本地核心体验页对单回合顺序和即时反馈的描述 + 先手战斗流程
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|玩家先手公平性模式]] 成立；固定先手把体验公平性和策略可控性优先交给玩家，而非交给随机先攻判定。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中战斗流程与回合规则条目。
