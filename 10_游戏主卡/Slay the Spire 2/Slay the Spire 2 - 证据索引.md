@@ -121,6 +121,12 @@ tags: [game-design, evidence-index]
   - 证据：本地核心体验页对单回合判断的描述 + wiki `Intent` 规则页 + 典型敌人行动 Pattern 页面
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|敌人意图可见威胁遥测模式]] 成立；战斗信息先行公开，使玩家回合变成基于威胁的解题过程。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中敌人条目与战斗信息条目。
+  - 证据：本地核心体验页对单回合顺序和即时反馈的描述 + 先手战斗流程
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|玩家先手公平性模式]] 成立；固定先手把体验公平性和策略可控性优先交给玩家，而非交给随机先攻判定。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中战斗流程与回合规则条目。
+  - 证据：本地核心体验页对单回合/单场规划的描述 + wiki `Block` 回合结算规则 + 战斗流程中的玩家回合/敌人回合交替
+  - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|生命周期管理模式]] 成立；`End Turn` 及回合阶段共同承担机制结算时点管理，交替结算是该模式的一部分。
+  - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中回合阶段、Buff/Debuff 与敌方行动条目。
   - 证据：IGN 关于 `Regent star`、`Necrobinder Doom` 与新修饰符的描述
   - -> 结论：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 设计模式|异质资源轴模式]] 成立，可由角色专属资源与额外节奏资源继续扩产。
   - -> 回链：[[10_游戏主卡/Slay the Spire 2/Slay the Spire 2 - 游戏内容|游戏内容页]] 中 `Regent`、`Necrobinder` 与修饰符条目。
