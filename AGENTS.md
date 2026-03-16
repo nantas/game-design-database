@@ -148,7 +148,7 @@
 - 在声明任务完成前，必须运行与改动对应的验证命令。
 - 常用验证命令：
   - `uv run pytest tests -v`
-  - `uv run python tools/import_url.py '<url>' --game '<game-name>'`
+  - `uv run import-url '<url>' --game '<game-name>'`
   - `rg -n -e '^type:|^tags:|^## ' 10_游戏主卡 50_专题索引 80_原则 90_模板与规范`
 
 - 涉及抽取修复时：

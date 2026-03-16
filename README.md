@@ -55,7 +55,7 @@ uv sync
 导入单游戏页面（必须指定游戏名）：
 
 ```bash
-uv run python tools/import_url.py 'https://example.com/article' --game 'Clash Royale'
+uv run import-url 'https://example.com/article' --game 'Clash Royale'
 ```
 
 导入后会：
